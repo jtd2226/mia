@@ -1,2 +1,2 @@
 bs:
-	browser-sync start --server --files '**/*.html, **/*.css, **/*.js'
+	npm run watch
