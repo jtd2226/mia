@@ -1,4 +1,3 @@
-import { template } from './util'
 import * as THREE from 'three'
 import Tile from './Tile'
 
