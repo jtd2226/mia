@@ -3,4 +3,4 @@ bs:
 
 deploy:
 	npm run build
-	gh-pages -d build
+	npm run deploy
