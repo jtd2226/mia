@@ -74,8 +74,8 @@ export default class Tile {
     --------------------------------------------------------- */
 
     getBounds() {
-        const width = 1920;
-        const height = 1080;
+        const width = window.innerWidth;
+        const height = window.innerHeight;
         const left = 0;
         const top = 0;
 

@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 
-const finalPath = path.resolve(__dirname, 'dist')
+const finalPath = path.resolve(__dirname, 'build')
 
 module.exports = {
     mode: 'development',
@@ -75,6 +75,8 @@ module.exports = {
     },
     plugins: [
         new CopyPlugin([
+            { from: './src/app.css', to: finalPath, force: true},
+            { from: './src/index.html', to: finalPath, force: true},
             { from: './src/fonts', to: path.join(finalPath, '/fonts'), force: true },
             { from: './src/img', to: path.join(finalPath, '/img'), force: true },
         ]),
@@ -84,7 +86,7 @@ module.exports = {
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
-            server: { baseDir: '.' },
+            server: { baseDir: './build' },
         }),
     ],
 }

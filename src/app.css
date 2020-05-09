@@ -1,0 +1,216 @@
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+hr {
+  width: 100%;
+  background: #f6abaf;
+  display: block;
+  height: 2px;
+  border: 0;
+  max-width: 700px;
+}
+
+:root {
+  --color-text1: #deedcf;
+  --color-text2: #ffcbcc;
+  --color-text3: #b9e6e3;
+  --color-text4: #e1d0a1;
+  --color-text5: #ccd3f6;
+  --color-bg1: #3f4849;
+  --color-bg2: #493f46;
+  --color-bg3: #2b3242;
+  --color-bg4: #3b3232;
+  --color-bg5: #2d3a40;
+  --color-text: var(--color-text1);
+  --color-bg: var(--color-bg1);
+  --color-link: var(--color-text);
+  --color-link-hover: #fff;
+  font-size: 62.5%; 
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#tabContent {
+  margin-top: 20px;
+  max-width: 700px;
+}
+
+#scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none; 
+  z-index: -1;
+}
+
+.horizontalContainer, .socialMediaIcons {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  flex-wrap: wrap;
+  z-index: 2000;
+  justify-content: space-around;
+  margin: 8px;
+}
+
+.buttonContainer {
+  justify-content: center;
+}
+
+.trippyButton {
+  background: #efefef;
+  border-radius: 2px;
+  font-size: xx-large;
+  padding: 8px 32px;
+  transition: 1s;
+  cursor: pointer;
+  pointer-events: all;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
+  z-index: 2000;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  margin: 8px;
+  border: #efefef 1px solid;
+}
+
+.btn-1 {
+  background-color: #f6afc9;
+  color: #efefef;
+  text-shadow: 0 0.02em 0 #fff, 0.11em 0.09em 0 rgba(0,0,0,.15);
+  text-transform: capitalize;
+}
+
+.btn-1:hover, .btn-1:active {
+  border: #9b7ed1cf 4px solid;
+  animation: pulse 1s ease-in infinite;
+  background: radial-gradient(circle, #f6afc9 43%, transparent 0) 0 0 / 1em 1em, 
+              radial-gradient(circle, #f6afc9 43%, transparent 0) 0.5em 0.5em / 2em 2em;
+  color: white;
+  text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
+}
+
+.btn-1:active {
+  transform: scale(0.9);
+}
+
+h1, h2 {
+  color: #efefef;
+  font-size: 100px;
+  text-shadow: 6px 3px 0px #f6afc9, -6px -3px 0 #0ea8d9;
+  padding-top: 20px;
+  text-align: center;
+  margin: 0;
+  /* animation: slidedown 3s ease-in; */
+  animation: wobbledywop 0.1s infinite;
+}
+
+h2 {
+  font-size: xx-large;
+}
+
+.ytVideo {
+  border-radius: 8px;
+  width: 700px;
+  max-width: 100%;
+  height: 500px;
+  max-height: 90vw;
+  margin-bottom: 20px;
+}
+
+.pageLink {
+  color: #efefef;
+  padding: 8px;
+  font-size: xx-large;
+  font-weight: bold;
+  text-shadow: -1.5px -1.5px 0px #f6afc9c4, 1.5px 1.5px 0 #9b7ed1cf;
+  transition: transform 0.5s;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.pageLink.selected {
+  transform: scale(1.5);
+  text-shadow: -3px -3px 0px #f6afc9c4, 3px 3px 0 #9b7ed1cf;
+}
+
+.slidedown {
+  animation: slidedown 2s ease-in-out;
+}
+
+.fadein {
+  animation: fadein 1s ease-in;
+}
+
+.slidein {
+  animation: slidein 0.7s cubic-bezier(0.4, 0, 0.21, 1.24);
+}
+
+.embeddedAlbum {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.facebookIcon {
+  background-color: #1877f2;
+  border-radius: 10px;
+}
+
+.followButton {
+  width: 100%;
+}
+
+.slideup {
+  animation: slideup 2s ease-in-out;
+}
+
+@keyframes pulse {  
+  50% {
+    background-position: 0.66em 0.66em, -0.33em -0.33em;
+  }
+  
+  100% {
+    background-size: 2em 2em, 1em 1em;
+    background-position: -1.5em -1.5em, -1em -1em;
+  }
+}
+
+@keyframes slidedown {
+  from { transform: translateY(-1000px);}
+  to { transform: translateY(0);}
+}
+
+@keyframes slidein {
+  from { transform: translateX(100vw);}
+  to { transform: translateX(0);}
+}
+
+@keyframes fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideup {
+  from { transform: translateY(100vh);}
+  to { transform: translateY(0);}
+}
+
+@keyframes wobbledywop {
+  from { 
+    transform: translateX(-0.7px);
+    transform: translateY(0.7px);
+    text-shadow: 3px 1.5px 0px #f6afc9, -3px -1.5px 0 #0ea8d9;
+  }
+  to { 
+    transform: translateX(0.7px);
+    transform: translateY(-0.7px);
+    text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0 #0ea8d9;
+  }
+}

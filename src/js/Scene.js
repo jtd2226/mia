@@ -9,7 +9,7 @@ import gooeyShader from '../glsl/gooeyShader.glsl'
 import waveShader from '../glsl/waveShader.glsl'
 
 const perspective = 800
-const bgImageURL = 'dist/img/MAMA/party.jpg'
+const bgImageURL = './img/MAMA/party.jpg'
 
 const shaders = [
     trippyShader,

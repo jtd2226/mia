@@ -1,29 +1,46 @@
 import Stage from './Stage'
+import {template} from './util'
 
 const APP = window.APP || {}
 
-/*-----------------------------------------------------------------------------------*/
-/*  01. INIT
-/*-----------------------------------------------------------------------------------*/
+function tabClicked(event, links) {
+    if(event.target.classList.contains("selected")) return;
+
+    let tabContent = document.getElementById("tabContent");
+    links.forEach(link => {
+        link.classList.remove("selected")
+    })
+    event.target.classList.add("selected")
+    
+    tabContent.parentNode.replaceChild(tabContent.cloneNode(false), tabContent)
+    tabContent = document.getElementById("tabContent");
+
+    tabContent.appendChild(template(event.target.dataset.content))
+    tabContent.classList.remove("slideup")
+    tabContent.classList.add("slidein")
+}
 
 const initApp = () => {
     window.APP = APP
 
     APP.Stage = new Stage()
 
-    const buttonContainer = document.querySelector('.buttonContainer')
+    const links = [document.getElementById("musicTab"),
+                   document.getElementById("mediaTab")];
+
     const mia = document.getElementById('mia')
-
-    buttonContainer.classList.add('fadein')
+    const tabContent = document.getElementById("tabContent")
+    
     mia.classList.add('slidedown')
-
-    setTimeout(() => {
-        buttonContainer.classList.remove('fadein')
-    }, 3500)
-
+    
     setTimeout(() => {
         mia.classList.remove('slidedown')
-    }, 3150)
+    }, 2100)
+    
+    links.forEach(link => {
+        link.addEventListener("click", event => tabClicked(event, links))
+    })
+    tabContent.appendChild(template("musicContent"))
 }
 
 if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
