@@ -78,6 +78,7 @@ export default class Scene {
 
         this.camera.updateProjectionMatrix()
         this.renderer.setSize(this.W, this.H)
+        this.tile.getBounds()
     }
 
     /* Actions
