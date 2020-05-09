@@ -4,6 +4,10 @@ html, body {
 
 body {
   background: #b9e6e3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 hr {
@@ -33,11 +37,31 @@ hr {
   font-size: 62.5%; 
 }
 
+.slideover {
+  background: #b9e6e3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  animation: slidein 1s cubic-bezier(0.4, 0, 0.21, 1.24);
+}
+
+#contactButton {
+  position: absolute;
+  right: 20px;
+  bottom: 100px;
+  color: black;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  max-width: 700px;
 }
 
 #tabContent {
@@ -60,7 +84,18 @@ hr {
   flex-wrap: wrap;
   z-index: 2000;
   justify-content: space-around;
-  margin: 8px;
+  margin: 8px 0;
+}
+
+.horizontalContainer a {
+  color: #efefef;
+  font-size: large;
+  font-weight: bolder;
+  background: #0ea8d9;
+  border-radius: 12px;
+  width: 100%;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  padding: 20px;
 }
 
 .buttonContainer {
@@ -103,7 +138,7 @@ hr {
   transform: scale(0.9);
 }
 
-h1, h2 {
+h1, h2, h3 {
   color: #efefef;
   font-size: 100px;
   text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0 #0ea8d9;
@@ -113,8 +148,10 @@ h1, h2 {
   animation: wobbledywop 3s infinite;
 }
 
-h2 {
+h3 {
   font-size: xx-large;
+  cursor: pointer;
+  z-index: 10000;
 }
 
 .ytVideo {

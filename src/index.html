@@ -46,29 +46,30 @@
             <div class="horizontalContainer fadein">
                 <div id="musicTab" data-content="musicContent" class="pageLink selected">MUSIC</div>
                 <div id="mediaTab" data-content="mediaContent" class="pageLink">MEDIA</div>
+                <div id="contactTab" data-content="contactContent" class="pageLink">CONTACT</div>
             </div>
             <!-- <hr class="fadein"/> -->
             <div id="tabContent" class="slideup"></div>
             <template id="musicContent">
-            <iframe class="followButton" 
-                    src="https://open.spotify.com/follow/1/?uri=spotify:artist:5cbHD2ZEOKgTdLt9i8IOlE&size=detail&theme=dark" 
-                    height="56" 
-                    scrolling="no" 
-                    frameborder="0" 
-                    style="border:none; overflow:hidden;" 
-                    allowtransparency="true">
-            </iframe>
-            <iframe class="embeddedAlbum"
-                    src="https://open.spotify.com/embed/album/46tsdG65ya5HOL8sUf5CS1" 
-                    allow="encrypted-media; transparency;" 
-                    frameborder="0">
-            </iframe>
-            <iframe class="embeddedAlbum" allow="autoplay *; encrypted-media *;" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/imminent-euphoria-ep/1498683037?app=music"></iframe>
-            <iframe class="embeddedAlbum" frameborder="0"
-                    allow="encrypted-media; transparency;" 
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/991434859&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-            </iframe>
-            <iframe class="embeddedAlbum" src="https://bandcamp.com/EmbeddedPlayer/album=3920738786/size=large/bgcol=ffffff/linkcol=f171a2/artwork=small/transparent=true/" seamless><a href="http://miamaddenmusic.bandcamp.com/album/imminent-euphoria">Imminent Euphoria by MIA</a></iframe>
+                <iframe class="followButton" 
+                        src="https://open.spotify.com/follow/1/?uri=spotify:artist:5cbHD2ZEOKgTdLt9i8IOlE&size=detail&theme=dark" 
+                        height="56" 
+                        scrolling="no" 
+                        frameborder="0" 
+                        style="border:none; overflow:hidden;" 
+                        allowtransparency="true">
+                </iframe>
+                <iframe class="embeddedAlbum"
+                        src="https://open.spotify.com/embed/album/46tsdG65ya5HOL8sUf5CS1" 
+                        allow="encrypted-media; transparency;" 
+                        frameborder="0">
+                </iframe>
+                <iframe class="embeddedAlbum" allow="autoplay *; encrypted-media *;" frameborder="0" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/imminent-euphoria-ep/1498683037?app=music"></iframe>
+                <iframe class="embeddedAlbum" frameborder="0"
+                        allow="encrypted-media; transparency;" 
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/991434859&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+                </iframe>
+                <iframe class="embeddedAlbum" src="https://bandcamp.com/EmbeddedPlayer/album=3920738786/size=large/bgcol=ffffff/linkcol=f171a2/artwork=small/transparent=true/" seamless><a href="http://miamaddenmusic.bandcamp.com/album/imminent-euphoria">Imminent Euphoria by MIA</a></iframe>
             </template>
             <template id="mediaContent">
                 <iframe class="ytVideo"
@@ -85,6 +86,17 @@
                 </iframe>
                 <iframe class="ytVideo"
                         src="https://www.youtube.com/embed/rwqCzdignbA" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </template>
+            <template id="contactContent">
+                <div class="horizontalContainer">
+                    <a href="mailto:miamaddenmgmt@gmail.com">miamaddenmgmt@gmail.com</a>
+                </div>
+                <iframe class="ytVideo"
+                        src="https://girlundergroundmusic.com/2020/04/24/self-discovery-and-recognizing-individuality-an-interview-with-mia-madden/" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>

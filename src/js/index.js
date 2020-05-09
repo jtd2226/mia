@@ -26,7 +26,8 @@ const initApp = () => {
     APP.Stage = new Stage()
 
     const links = [document.getElementById("musicTab"),
-                   document.getElementById("mediaTab")];
+                   document.getElementById("mediaTab"),
+                   document.getElementById("contactTab")];
 
     const mia = document.getElementById('mia')
     const tabContent = document.getElementById("tabContent")
