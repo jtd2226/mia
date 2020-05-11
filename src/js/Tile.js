@@ -42,8 +42,8 @@ export default class Tile {
             u_res: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
         }
 
-        this.geometry = new THREE.PlaneBufferGeometry(1, 1, 1, 1)
-
+        this.geometry = new THREE.BoxGeometry(300, 300, 300)
+        // this.geometry = new THREE.SphereGeometry(25, 30, 10)
         this.material = new THREE.ShaderMaterial({
             uniforms: this.uniforms,
             vertexShader: this.vertexShader,
@@ -53,15 +53,12 @@ export default class Tile {
                 PI: Math.PI,
                 PR: window.devicePixelRatio.toFixed(1),
             },
+            side: THREE.DoubleSide
         })
-
         this.mesh = new THREE.Mesh(this.geometry, this.material)
-
+        this.mesh.position.set(0, 0, 0)
         this.mesh.position.x = this.offset.x
         this.mesh.position.y = this.offset.y
-
-        this.mesh.scale.set(this.sizes.x, this.sizes.y, 1)
-
         this.scene.mainScene.add(this.mesh)
     }
 
