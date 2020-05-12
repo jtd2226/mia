@@ -35,6 +35,7 @@
     "smooth-scrollbar": "^8.4.1",
     "three": "^0.116.1",
     "three-controls-deviceorientation": "^1.0.0",
-    "three-orbitcontrols": "^2.110.3"
+    "three-orbitcontrols": "^2.110.3",
+    "three-subdivision-modifier": "^1.0.5"
   }
 }

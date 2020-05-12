@@ -22,7 +22,7 @@ void main() {
 
   float offX = uv.x + sin(uv.y + time * 9.);
   float offY = uv.y - time * .2 - cos(time * 2.) * 0.1;
-  float nh = (snoise3(vec3(offX, offY, time * .5 ) * 2.)) * .03;
+  float nh = (snoise3(vec3(offX, offY, time * .5 ) * 3.)) * .03;
 
   uv -= vec2(0.5);
   uv *= 1.;

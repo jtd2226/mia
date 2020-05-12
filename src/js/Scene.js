@@ -53,6 +53,7 @@ export default class Scene {
         this.initLights()
 
         this.renderer = new THREE.WebGLRenderer({
+            antialias: true,
             canvas: this.container,
             alpha: true,
         })
@@ -74,8 +75,6 @@ export default class Scene {
     }
 
     initCamera() {
-        const fov = (180 * (2 * Math.atan(this.H / 2 / perspective))) / Math.PI
-
         this.camera = new THREE.PerspectiveCamera(100, this.W / this.H, 3, 10000)
         this.camera.position.set(0, 0, perspective)
     }

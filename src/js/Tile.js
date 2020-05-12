@@ -43,18 +43,18 @@ export default class Tile {
         }
 
         this.geometry = new THREE.BoxGeometry(300, 300, 300)
-        // this.geometry = new THREE.SphereGeometry(25, 30, 10)
+
         this.material = new THREE.ShaderMaterial({
             uniforms: this.uniforms,
             vertexShader: this.vertexShader,
             fragmentShader: this.fragmentShader,
             transparent: true,
             defines: {
-                PI: Math.PI,
                 PR: window.devicePixelRatio.toFixed(1),
             },
             side: THREE.DoubleSide
         })
+
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.position.set(0, 0, 0)
         this.mesh.position.x = this.offset.x
