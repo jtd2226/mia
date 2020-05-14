@@ -95,16 +95,6 @@ iframe.followButton {
   margin: 8px 0;
 }
 
-.horizontalContainer a {
-  color: white;
-  font-size: large;
-  font-weight: bolder;
-  background: #6fc1c4bf;
-  border-radius: 0px;
-  width: 100%;
-  padding: 20px;
-}
-
 .buttonContainer {
   justify-content: center;
 }
@@ -113,7 +103,7 @@ iframe.followButton {
   background: #efefef;
   border-radius: 2px;
   font-size: xx-large;
-  padding: 8px 32px;
+  padding: 8px 12px;
   transition: 1s;
   cursor: pointer;
   pointer-events: all;
@@ -121,23 +111,20 @@ iframe.followButton {
   font-weight: bolder;
   z-index: 2000;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  margin: 8px;
-  border: #efefef 1px solid;
+  text-decoration: none;
 }
 
 .btn-1 {
-  background-color: #f6afc9;
+  background: transparent;
   color: #efefef;
   text-shadow: 0 0.02em 0 #fff, 0.11em 0.09em 0 rgba(0,0,0,.15);
   text-transform: capitalize;
+  box-shadow: none;
+  text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
+  float: right;
 }
 
 .btn-1:hover, .btn-1:active {
-  border: #9b7ed1cf 4px solid;
-  animation: pulse 1s ease-in infinite;
-  background: radial-gradient(circle, #f6afc9 43%, transparent 0) 0 0 / 1em 1em, 
-              radial-gradient(circle, #f6afc9 43%, transparent 0) 0.5em 0.5em / 2em 2em;
-  color: white;
   text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
 }
 
@@ -161,13 +148,17 @@ h3 {
   z-index: 10000;
 }
 
-.ytVideo {
+.ytVideo, .interview {
   border-radius: 8px;
   width: 1000px;
   max-width: 100%;
   height: 500px;
   max-height: 90vw;
   margin-bottom: 20px;
+}
+
+.interview {
+  margin: 20px 0;
 }
 
 .pageLink {
@@ -216,6 +207,31 @@ h3 {
 
 .slideup {
   animation: slideup 2s ease-in-out;
+}
+
+#tabContent .about {
+  display: grid;
+  background: #ff4d8e91;
+  padding: 30px;
+  font-size: 22px;
+  font-family: mnrp,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  line-height: 32px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.about p {
+  font-weight: bold;
+  color: #efefef
+}
+
+.about h1 {
+  font-size: xxx-large;
+}
+
+.about .btn-1 {
+  justify-self: end;
+  margin-right: 20px;
 }
 
 @keyframes pulse {  
