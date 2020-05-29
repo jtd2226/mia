@@ -112,6 +112,7 @@ iframe.followButton {
   z-index: 2000;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .btn-1 {
@@ -121,7 +122,6 @@ iframe.followButton {
   text-transform: capitalize;
   box-shadow: none;
   text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
-  float: right;
 }
 
 .btn-1:hover, .btn-1:active {
@@ -211,18 +211,18 @@ h3 {
 
 #tabContent .about {
   display: grid;
-  background: #ff4d8e91;
-  padding: 30px;
-  font-size: 22px;
+  font-size: 16pt;
   font-family: mnrp,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-  line-height: 32px;
+  line-height: 30px;
   margin-bottom: 20px;
-  border-radius: 4px;
 }
 
 .about p {
-  font-weight: bold;
-  color: #efefef
+  backdrop-filter: blur(25px);
+  color: #efefef;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .about h1 {
