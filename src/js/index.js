@@ -1,3 +1,4 @@
+import { WEBGL } from 'three/examples/jsm/WebGL'
 import Stage from './Stage'
 import {template} from './util'
 
@@ -22,8 +23,11 @@ function tabClicked(event, links) {
 
 const initApp = () => {
     window.APP = APP
-
-    APP.Stage = new Stage()
+    if(WEBGL.isWebGLAvailable()) {
+        APP.Stage = new Stage()
+    } else {
+        document.body.style.background = "url(./img/MAMA/mamahome.jpg) no-repeat fixed"
+    }
 
     const links = [document.getElementById("musicTab"),
                    document.getElementById("mediaTab"),
