@@ -92,7 +92,13 @@ iframe.followButton {
   flex-wrap: wrap;
   z-index: 2000;
   justify-content: space-around;
-  margin: 8px 0;
+  margin: 30px 0 15px 0;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  margin: -15px 0 20px 0;
 }
 
 .buttonContainer {
@@ -198,6 +204,10 @@ h3 {
 
 .facebookIcon {
   background-color: #1877f2;
+  border-radius: 10px;
+}
+
+.rounded {
   border-radius: 10px;
 }
 
