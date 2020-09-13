@@ -1,312 +1,339 @@
-html, body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+html,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 body {
-  background: #ac486a;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background: url("./img/MAMA/mamasky.JPEG") no-repeat center fixed;
+    background-color: #03a6f2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 hr {
-  width: 100%;
-  background: #f6abaf;
-  display: block;
-  height: 2px;
-  border: 0;
-  max-width: 1000px;
+    width: 100%;
+    background: #01a5f0;
+    display: block;
+    height: 2px;
+    border: 0;
+    max-width: 1000px;
 }
 
 iframe {
-  background: #ac486ab5;
+    background: #03a6f2b5;
 }
 
 iframe.followButton {
-  background: transparent;
+    background: transparent;
 }
 
 :root {
-  --color-text1: #deedcf;
-  --color-text2: #ffcbcc;
-  --color-text3: #b9e6e3;
-  --color-text4: #e1d0a1;
-  --color-text5: #ccd3f6;
-  --color-bg1: #3f4849;
-  --color-bg2: #493f46;
-  --color-bg3: #2b3242;
-  --color-bg4: #3b3232;
-  --color-bg5: #2d3a40;
-  --color-text: var(--color-text1);
-  --color-bg: var(--color-bg1);
-  --color-link: var(--color-text);
-  --color-link-hover: #fff;
-  font-size: 62.5%; 
+    --color-text1: #deedcf;
+    --color-text2: #ffcbcc;
+    --color-text3: #b9e6e3;
+    --color-text4: #e1d0a1;
+    --color-text5: #ccd3f6;
+    --color-bg1: #3f4849;
+    --color-bg2: #493f46;
+    --color-bg3: #2b3242;
+    --color-bg4: #3b3232;
+    --color-bg5: #2d3a40;
+    --color-text: var(--color-text1);
+    --color-bg: var(--color-bg1);
+    --color-link: var(--color-text);
+    --color-link-hover: #fff;
+    font-size: 62.5%;
 }
 
 .slideover {
-  background: #b9e6e3;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 10000;
-  animation: slidein 1s cubic-bezier(0.4, 0, 0.21, 1.24);
+    background: #b9e6e3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10000;
+    animation: slidein 1s cubic-bezier(0.4, 0, 0.21, 1.24);
 }
 
 #contactButton {
-  position: absolute;
-  right: 20px;
-  bottom: 100px;
-  color: black;
+    position: absolute;
+    right: 20px;
+    bottom: 100px;
+    color: black;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 1000px;
 }
 
 #tabContent {
-  margin-top: 20px;
-  max-width: 1000px;
+    margin-top: 20px;
+    max-width: 1000px;
 }
 
 #scene {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none; 
-  z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
 }
 
-.horizontalContainer, .socialMediaIcons {
-  display: flex;
-  width: 100%;
-  max-width: 1000px;
-  flex-wrap: wrap;
-  z-index: 2000;
-  justify-content: space-around;
-  margin: 30px 0 15px 0;
+.horizontalContainer,
+.socialMediaIcons {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    z-index: 2000;
+    justify-content: space-around;
+    margin: 30px 0 15px 0;
 }
 
 .contact-container {
-  display: flex;
-  justify-content: center;
-  margin: -15px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    margin: -15px 0 20px 0;
 }
 
 .buttonContainer {
-  justify-content: center;
+    justify-content: center;
 }
 
 .trippyButton {
-  background: #efefef;
-  border-radius: 2px;
-  font-size: xx-large;
-  padding: 8px 12px;
-  transition: 1s;
-  cursor: pointer;
-  pointer-events: all;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: bolder;
-  z-index: 2000;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  text-decoration: none;
-  box-sizing: border-box;
+    background: #efefef;
+    border-radius: 2px;
+    font-size: xx-large;
+    padding: 8px 12px;
+    transition: 1s;
+    cursor: pointer;
+    pointer-events: all;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: bolder;
+    z-index: 2000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    text-decoration: none;
+    box-sizing: border-box;
 }
 
 .btn-1 {
-  background: transparent;
-  color: #efefef;
-  text-shadow: 0 0.02em 0 #fff, 0.11em 0.09em 0 rgba(0,0,0,.15);
-  text-transform: capitalize;
-  box-shadow: none;
-  text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
+    background: transparent;
+    color: #efefef;
+    text-shadow: 0 0.02em 0 #fff, 0.11em 0.09em 0 rgba(0, 0, 0, 0.15);
+    text-transform: capitalize;
+    box-shadow: none;
+    text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
 }
 
-.btn-1:hover, .btn-1:active {
-  text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
+.btn-1:hover,
+.btn-1:active {
+    text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
 }
 
 .btn-1:active {
-  transform: scale(0.9);
+    transform: scale(0.9);
 }
 
-h1, h2, h3 {
-  color: #efefef;
-  font-size: 100px;
-  text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0 #0ea8d9;
-  padding-top: 20px;
-  text-align: center;
-  margin: 0;
-  animation: wobbledywop 3s infinite;
+h1,
+h2,
+h3 {
+    color: #efefef;
+    font-size: 100px;
+    text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0 #0ea8d9;
+    padding-top: 20px;
+    text-align: center;
+    margin: 0;
+    animation: wobbledywop 3s infinite;
 }
 
 h3 {
-  font-size: xx-large;
-  cursor: pointer;
-  z-index: 10000;
+    font-size: xx-large;
+    cursor: pointer;
+    z-index: 10000;
 }
 
-.ytVideo, .interview {
-  border-radius: 8px;
-  width: 1000px;
-  max-width: 100%;
-  height: 500px;
-  max-height: 90vw;
-  margin-bottom: 20px;
+.ytVideo,
+.interview {
+    border-radius: 8px;
+    width: 1000px;
+    max-width: 100%;
+    height: 500px;
+    max-height: 90vw;
+    margin-bottom: 20px;
 }
 
 .interview {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
 .pageLink {
-  color: #efefef;
-  padding: 8px;
-  font-size: xx-large;
-  font-weight: bold;
-  text-shadow: -1.5px -1.5px 0px #f6afc9c4, 1.5px 1.5px 0 #9b7ed1cf;
-  transition: transform 0.5s;
-  pointer-events: all;
-  cursor: pointer;
+    color: #efefef;
+    padding: 8px;
+    font-size: xx-large;
+    font-weight: bold;
+    text-shadow: -1.5px -1.5px 0px #dcd6f77b, 1.5px 1.5px 0 #03f7eb7b;
+    transition: transform 0.5s;
+    pointer-events: all;
+    cursor: pointer;
 }
 
 .pageLink.selected {
-  transform: scale(1.5);
-  text-shadow: -3px -3px 0px #f6afc9c4, 3px 3px 0 #9b7ed1cf;
+    transform: scale(1.5);
+    text-shadow: -3px -3px 0px #dcd6f77b, 3px 3px 0 #03f7eb7b;
 }
 
 .slidedown {
-  animation: slidedown 2s ease-in-out;
+    animation: slidedown 2s ease-in-out;
 }
 
 .fadein {
-  animation: fadein 1s ease-in;
+    animation: fadein 1s ease-in;
 }
 
 .slidein {
-  animation: slidein 0.7s cubic-bezier(0.4, 0, 0.21, 1.24);
+    animation: slidein 0.7s cubic-bezier(0.4, 0, 0.21, 1.24);
 }
 
 .embeddedAlbum {
-  width: 100%;
-  height: 300px;
-  border-radius: 8px;
-  margin-bottom: 20px;
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    margin-bottom: 20px;
 }
 
 .facebookIcon {
-  background-color: #1877f2;
-  border-radius: 10px;
+    background-color: #1877f2;
+    border-radius: 10px;
 }
 
 .rounded {
-  border-radius: 10px;
+    border-radius: 10px;
 }
 
 .followButton {
-  width: 100%;
+    width: 100%;
 }
 
 .slideup {
-  animation: slideup 2s ease-in-out;
+    animation: slideup 2s ease-in-out;
 }
 
 #tabContent .about {
-  display: grid;
-  font-size: 16pt;
-  font-family: mnrp,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
-  line-height: 30px;
-  margin-bottom: 20px;
+    display: grid;
+    font-size: 16pt;
+    font-family: mnrp, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+        Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+        Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    line-height: 30px;
+    margin-bottom: 20px;
 }
 
 .about p {
-  backdrop-filter: blur(25px);
-  color: #efefef;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 10px;
+    backdrop-filter: blur(25px);
+    color: #efefef;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
 }
 
 .about h1 {
-  font-size: xxx-large;
+    font-size: xxx-large;
 }
 
 .about .btn-1 {
-  justify-self: end;
-  margin-right: 20px;
+    justify-self: end;
+    margin-right: 20px;
 }
 
-@keyframes pulse {  
-  50% {
-    background-position: 0.66em 0.66em, -0.33em -0.33em;
-  }
-  
-  100% {
-    background-size: 2em 2em, 1em 1em;
-    background-position: -1.5em -1.5em, -1em -1em;
-  }
+@keyframes pulse {
+    50% {
+        background-position: 0.66em 0.66em, -0.33em -0.33em;
+    }
+
+    100% {
+        background-size: 2em 2em, 1em 1em;
+        background-position: -1.5em -1.5em, -1em -1em;
+    }
 }
 
 @keyframes slidedown {
-  from { transform: translateY(-1000px);}
-  to { transform: translateY(0);}
+    from {
+        transform: translateY(-1000px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 @keyframes slidein {
-  from { transform: translateX(100vw);}
-  to { transform: translateX(0);}
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
 }
 
 @keyframes fadein {
-  from {opacity: 0;}
-  to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideup {
-  from { transform: translateY(100vh);}
-  to { transform: translateY(0);}
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 @keyframes wobbledywop {
-  0% {
-    text-shadow: 2px -2px 3px #f6afc9, -2px 2px 3px #0ea8d9;
-  }
-  90% { 
-    transform: translateX(-0.7px);
-    transform: translateY(0.7px);
-    text-shadow: 2px 2px 3px #f6afc9, -2px -2px 3px #0ea8d9;
-  }
-  92% { 
-    transform: translateX(0.7px);
-    transform: translateY(-0.7px);
-    text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0px #0ea8d9;
-  }
-  94% { 
-    transform: translateX(-0.7px);
-    transform: translateY(0.7px);
-    text-shadow: 3px 1.5px 0px #f6afc9, -3px -1.5px 0px #0ea8d9;
-  }
-  96% { 
-    transform: translateX(0.7px);
-    transform: translateY(-0.7px);
-    text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0px #0ea8d9;
-  }
-  98% { 
-    transform: translateX(-0.7px);
-    transform: translateY(0.7px);
-    text-shadow: 3px 1.5px 0px #f6afc9, -3px -1.5px 0px #0ea8d9;
-  }
-  100% { 
-    transform: translateX(0.7px);
-    transform: translateY(-0.7px);
-    text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0px #0ea8d9;
-  }
+    0% {
+        text-shadow: 2px -2px 3px #f6afc9, -2px 2px 3px #0ea8d9;
+    }
+    90% {
+        transform: translateX(-0.7px);
+        transform: translateY(0.7px);
+        text-shadow: 2px 2px 3px #f6afc9, -2px -2px 3px #0ea8d9;
+    }
+    92% {
+        transform: translateX(0.7px);
+        transform: translateY(-0.7px);
+        text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0px #0ea8d9;
+    }
+    94% {
+        transform: translateX(-0.7px);
+        transform: translateY(0.7px);
+        text-shadow: 3px 1.5px 0px #f6afc9, -3px -1.5px 0px #0ea8d9;
+    }
+    96% {
+        transform: translateX(0.7px);
+        transform: translateY(-0.7px);
+        text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0px #0ea8d9;
+    }
+    98% {
+        transform: translateX(-0.7px);
+        transform: translateY(0.7px);
+        text-shadow: 3px 1.5px 0px #f6afc9, -3px -1.5px 0px #0ea8d9;
+    }
+    100% {
+        transform: translateX(0.7px);
+        transform: translateY(-0.7px);
+        text-shadow: -3px -1.5px 0px #f6afc9, 3px 1.5px 0px #0ea8d9;
+    }
 }
