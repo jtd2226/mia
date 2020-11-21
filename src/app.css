@@ -102,6 +102,20 @@ iframe.followButton {
 
 .fullheight {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* padding-bottom: 100px; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    background: transparent;
+    color: #efefef;
+    text-shadow: 0 0.02em 0 #fff, 0.11em 0.09em 0 rgba(0, 0, 0, 0.15);
+    text-transform: capitalize;
+    box-shadow: none;
+    text-shadow: 3px 3px 0px #f6afc9, 6px 6px 0 #0ea8d9;
 }
 
 .navbar {

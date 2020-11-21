@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import vertexShader from "../glsl/vertexShader.glsl";
 import fragmentShader from "../glsl/shader.glsl";
-// import AudioPlayer, { state as AudioPlayerState } from "./AudioPlayer";
 
 function debounce(fn, wait = 400) {
     let timeout = null;
@@ -154,9 +153,26 @@ export default class Scene {
         this.loadBGImage(imageURLS[0]);
     };
 
+    loadAudio = () => {
+        const audio = document.getElementById("audio");
+        audio.addEventListener("click", () => {
+            if (this.analyser) return;
+            const context = new (window.AudioContext ||
+                window.webkitAudioContext)();
+            const src = context.createMediaElementSource(audio);
+            this.analyser = context.createAnalyser();
+            src.connect(this.analyser);
+            this.analyser.connect(context.destination);
+            this.analyser.fftSize = 512;
+            const bufferLength = this.analyser.frequencyBinCount;
+            this.dataArray = new Uint8Array(bufferLength);
+        });
+    };
+
     loadBGImage(url) {
         const loader = new THREE.TextureLoader();
         const texture = loader.load(url, () => {
+            this.loadAudio();
             this.uniforms = {
                 time: { value: this.clock.getElapsedTime() },
                 resolution: { value: new THREE.Vector2(this.W, this.H) },
@@ -164,6 +180,7 @@ export default class Scene {
                 mouse: { value: new THREE.Vector2(0) },
                 amount: { value: 1.0 },
                 freq: { value: 0.0 },
+                freq2: { value: 0.0 },
             };
 
             this.planeGeometry = new THREE.PlaneBufferGeometry(
@@ -188,6 +205,7 @@ export default class Scene {
         this.animationId = requestAnimationFrame(this.update);
         const delta = this.clock.getDelta() / 6;
         this.uniforms.time.value += delta * timeMultiplier;
+        this.updateWithMusic();
         this.renderer.render(this.mainScene, this.camera);
     };
 
@@ -201,10 +219,10 @@ export default class Scene {
     }
 
     updateWithMusic() {
-        if (!this.audioPlayer) return;
-        if (this.audioPlayer.state !== AudioPlayerState.playing) return;
-        this.uniforms.freq.value = this.audioPlayer.getFrequencyData();
-        this.audioPlayer.updateProgress();
+        if (!this.analyser) return;
+        this.analyser.getByteFrequencyData(this.dataArray);
+        this.uniforms.freq.value = this.dataArray[0];
+        this.uniforms.freq2.value = this.dataArray[50];
     }
 
     showPlayer = () => {
