@@ -38,17 +38,8 @@ const imageURLS = [
     // "./img/MAMA/trippymama.JPG",
 ];
 
-const cameraZ = 10;
-const planeZ = 0;
-const cameraDistance = cameraZ - planeZ;
-const cameraFov = 75;
-const vFov = (cameraFov * Math.PI) / 180;
-const planeHeight = 2 * Math.tan(vFov / 2) * cameraDistance;
-const timeMultiplier = 0.2;
-
 const fade = (element, out = false, duration = 300) =>
     new Promise((resolve) => {
-        let og = element.style.opacity;
         element.style.opacity = 0;
         let start;
         let id;
@@ -60,12 +51,19 @@ const fade = (element, out = false, duration = 300) =>
             if (elapsed < duration) id = requestAnimationFrame(animate);
             else {
                 cancelAnimationFrame(id);
-                // element.style.opacity = og;
                 resolve();
             }
         };
         id = requestAnimationFrame(animate);
     });
+
+const cameraZ = 10;
+const planeZ = 0;
+const cameraDistance = cameraZ - planeZ;
+const cameraFov = 75;
+const vFov = (cameraFov * Math.PI) / 180;
+const planeHeight = 2 * Math.tan(vFov / 2) * cameraDistance;
+const timeMultiplier = 0.2;
 
 export default class Scene {
     constructor(canvas) {
@@ -76,6 +74,36 @@ export default class Scene {
 
         this.start();
         this.bindEvent();
+    }
+
+    start = () => {
+        this.mainScene = new THREE.Scene();
+        this.mainScene.background = new THREE.Color(0x000);
+        this.initCamera();
+        this.initLights();
+
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: this.container,
+        });
+        this.renderer.setSize(this.W, this.H);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+
+        this.clock = new THREE.Clock();
+        this.loadBGImage(imageURLS[0]);
+    };
+
+    initCamera() {
+        const aspect = this.W / this.H;
+        this.planeWidth = planeHeight * aspect;
+        this.camera = new THREE.PerspectiveCamera(cameraFov, aspect, 0.1);
+        this.camera.position.z = cameraZ;
+        this.camera.updateProjectionMatrix();
+        this.camera.lookAt(this.mainScene.position);
+    }
+
+    initLights() {
+        // const ambientlight = new THREE.AmbientLight(0xffffff);
+        // this.mainScene.add(ambientlight);
     }
 
     onResize = debounce(() => {
@@ -94,11 +122,17 @@ export default class Scene {
         this.camera.updateProjectionMatrix();
 
         this.planeWidth = planeHeight * aspect;
+
+        this.uniforms.tDiffuse.value.dispose();
+        this.cube.geometry.dispose();
+        this.cube.material.dispose();
+
         this.planeGeometry.dispose();
         this.planeGeometry = new THREE.PlaneBufferGeometry(
             this.planeWidth,
             planeHeight
         );
+
         this.cube.geometry = this.planeGeometry;
     }, 500);
 
@@ -123,36 +157,6 @@ export default class Scene {
         // window.ontouchstart = this.togglePlayer;
     };
 
-    initLights() {
-        // const ambientlight = new THREE.AmbientLight(0xffffff);
-        // this.mainScene.add(ambientlight);
-    }
-
-    initCamera() {
-        const aspect = this.W / this.H;
-        this.planeWidth = planeHeight * aspect;
-        this.camera = new THREE.PerspectiveCamera(cameraFov, aspect, 0.1);
-        this.camera.position.z = cameraZ;
-        this.camera.updateProjectionMatrix();
-        this.camera.lookAt(this.mainScene.position);
-    }
-
-    start = () => {
-        this.mainScene = new THREE.Scene();
-        this.mainScene.background = new THREE.Color(0x000);
-        this.initCamera();
-        this.initLights();
-
-        this.renderer = new THREE.WebGLRenderer({
-            canvas: this.container,
-        });
-        this.renderer.setSize(this.W, this.H);
-        this.renderer.setPixelRatio(window.devicePixelRatio);
-
-        this.clock = new THREE.Clock();
-        this.loadBGImage(imageURLS[0]);
-    };
-
     loadAudio = () => {
         const audio = document.getElementById("audio");
         audio.addEventListener("click", () => {
@@ -161,6 +165,7 @@ export default class Scene {
                 window.webkitAudioContext)();
             const src = context.createMediaElementSource(audio);
             this.analyser = context.createAnalyser();
+            this.analyser.smoothingTimeConstant = 0.9;
             src.connect(this.analyser);
             this.analyser.connect(context.destination);
             this.analyser.fftSize = 512;
@@ -203,7 +208,7 @@ export default class Scene {
 
     update = () => {
         this.animationId = requestAnimationFrame(this.update);
-        const delta = this.clock.getDelta() / 6;
+        const delta = this.clock.getDelta();
         this.uniforms.time.value += delta * timeMultiplier;
         this.updateWithMusic();
         this.renderer.render(this.mainScene, this.camera);
@@ -222,7 +227,7 @@ export default class Scene {
         if (!this.analyser) return;
         this.analyser.getByteFrequencyData(this.dataArray);
         this.uniforms.freq.value = this.dataArray[0];
-        this.uniforms.freq2.value = this.dataArray[50];
+        this.uniforms.freq2.value = this.dataArray[100];
     }
 
     showPlayer = () => {

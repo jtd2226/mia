@@ -80,6 +80,7 @@ function onScroll(e) {
     ticking = true;
 }
 
+let youtubeVideos = [];
 function tabClicked(event, links) {
     const scrollPos = document.documentElement.scrollTop;
     const h = window.innerHeight;
@@ -102,14 +103,58 @@ function tabClicked(event, links) {
     tabContent.parentNode.replaceChild(tabContent.cloneNode(false), tabContent);
     tabContent = document.getElementById("tabContent");
 
-    tabContent.appendChild(template(event.target.dataset.content));
+    const templateId = event.target.dataset.content
+    if(event.target.id === "mediaTab") {
+        youtubeVideos.forEach(vid => tabContent.appendChild(vid))
+    } else {
+        tabContent.appendChild(template(templateId));
+    }
     tabContent.classList.remove("slideup");
     tabContent.classList.add("slidein");
+}
+
+function makeYoutubeVideoElement(url) {
+    const iframe = document.createElement("iframe")
+    iframe.src = url
+    iframe.className = "ytVideo"
+    iframe.frameBorder = 0
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true
+    return iframe
+}
+
+function getYoutubeVideos() {
+    const url = "https://www.googleapis.com/youtube/v3/playlistItems"
+    const query = "?part=snippet&maxResults=10&playlistId=UUWbxgF1kHtSeI6i7lJXz9Sw&key=AIzaSyAxsRJ33mwTLgXRN6mhkPq8jwjaEUQMb5I"
+    return fetch(`${url}${query}`)
+        .then(r => r.json())
+        .then(body => body.items
+            .filter(item => item.snippet)
+            .filter(item => item.snippet.publishedAt)
+            .filter(item => item.snippet.resourceId)
+            .filter(item => item.snippet.resourceId.videoId)
+            .sort((a, b) => 
+                new Date(b.snippet.publishedAt) - new Date(a.snippet.publishedAt))
+            .map((item, index) => {
+                const videoId = item.snippet.resourceId.videoId;
+                const element = makeYoutubeVideoElement(`https://www.youtube.com/embed/${videoId}${index === 0 ? "?autoplay=1&mute=1" : ""}`)
+                return element
+            })
+        )
+        .then((vids) => {
+            youtubeVideos = vids
+            const selectedTab = document.querySelector(".pageLink .selected")
+            if(selectedTab.id === "mediaTab") {
+                const tabContent = document.getElementById("tabContent");
+                youtubeVideos.forEach(vid => tabContent.appendChild(vid))
+            }
+        })
 }
 
 const initApp = () => {
     initScene();
     initContent();
+    getYoutubeVideos();
     window.addEventListener("scroll", onScroll);
 };
 
