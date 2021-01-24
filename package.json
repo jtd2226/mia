@@ -1,4 +1,11 @@
 {
+    "name": "miamaddenmusic.com",
+    "version": "1.0.0",
+    "description": "Cooking School",
+    "homepage": "/",
+    "repository": "https://github.com/jtd2226/mia.git",
+    "author": "Web Platform",
+    "private": true,
     "scripts": {
         "build": "webpack --config webpack.config.js",
         "watch": "webpack --watch --config webpack.config.js",
