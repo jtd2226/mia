@@ -70,18 +70,13 @@ module.exports = {
                 to: path.join(finalPath, "/img"),
                 force: true,
             },
-            {
-                from: "./src/media",
-                to: path.join(finalPath, "/media"),
-                force: true,
-            },
         ]),
         new MiniCssExtractPlugin({
             filename: "app.css",
         }),
         new BrowserSyncPlugin({
             host: "localhost",
-            port: 3000,
+            port: 5000,
             server: { baseDir: "./build" },
         }),
     ],

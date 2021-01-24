@@ -16,26 +16,7 @@ function debounce(fn, wait = 400) {
 }
 
 const imageURLS = [
-    // "./img/MAMA/party.jpg",
-    // "./img/MAMA/circlymama.jpg",
-    // "./img/MAMA/fedoramama.jpg",
-    // "./img/MAMA/grassymama.JPEG",
-    // "./img/MAMA/horseymama.jpg",
-    // "./img/MAMA/kittymama.jpg",
-    // "./img/MAMA/leggymama.jpg",
-    // "./img/MAMA/mama1.jpg",
-    // "./img/MAMA/mama2.jpg",
-    // "./img/MAMA/mamahome.jpg",
-    // "./img/MAMA/mamajiyu.png",
-    // "./img/MAMA/mamasky.JPEG",
-    // "./img/MAMA/mamatwinkleeyes.jpg",
     "./img/MAMA/miaxsatara.jpg",
-    // "./img/MAMA/mountainmama.jpg",
-    // "./img/MAMA/nfsmama.JPG",
-    // "./img/MAMA/prettymama.jpg",
-    // "./img/MAMA/saucymama.jpg",
-    // "./img/MAMA/swirlymama.PNG",
-    // "./img/MAMA/trippymama.JPG",
 ];
 
 const fade = (element, out = false, duration = 300) =>
@@ -177,7 +158,7 @@ export default class Scene {
     loadBGImage(url) {
         const loader = new THREE.TextureLoader();
         const texture = loader.load(url, () => {
-            this.loadAudio();
+            // this.loadAudio();
             this.uniforms = {
                 time: { value: this.clock.getElapsedTime() },
                 resolution: { value: new THREE.Vector2(this.W, this.H) },
