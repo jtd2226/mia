@@ -2,10 +2,11 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require("webpack")
 
 const finalPath = path.resolve(__dirname, "build");
 
-module.exports = {
+module.exports = env => ({
     mode: "development",
     entry: ["babel-polyfill", "./src/js/index.js"],
     output: {
@@ -79,5 +80,6 @@ module.exports = {
             port: 5000,
             server: { baseDir: "./build" },
         }),
+        new webpack.EnvironmentPlugin(['YT_API_KEY'])
     ],
-};
+});
