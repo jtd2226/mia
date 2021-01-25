@@ -143,7 +143,7 @@ function getYoutubeVideos() {
         )
         .then((vids) => {
             youtubeVideos = vids
-            const selectedTab = document.querySelector(".pageLink .selected")
+            const selectedTab = document.querySelector(".pageLink.selected")
             if(selectedTab.id === "mediaTab") {
                 const tabContent = document.getElementById("tabContent");
                 youtubeVideos.forEach(vid => tabContent.appendChild(vid))
