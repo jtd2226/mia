@@ -124,6 +124,7 @@ function makeYoutubeVideoElement(url) {
 }
 
 function getYoutubeVideos() {
+    console.log(JSON.stringify(process.env))
     const url = "https://www.googleapis.com/youtube/v3/playlistItems"
     const query = `?part=snippet&maxResults=10&playlistId=UUWbxgF1kHtSeI6i7lJXz9Sw&key=${process.env.YT_API_KEY}`
     return fetch(`${url}${query}`)
