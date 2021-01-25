@@ -13,7 +13,8 @@ function debounce(fn, wait = 400) {
 
 export default class Spotify {
     static baseURL = "https://api.spotify.com/v1/";
-    static client_id = "2d38679d03b04cdfb39384814e2b8d0e";
+    static client_id = process.env.SPOTIFY_CLIENT_ID;
+    static client_secret = process.env.SPOTIFY_CLIENT_SECRET;
 
     static scopes = ["user-read-currently-playing", "user-read-playback-state"];
 
@@ -54,7 +55,7 @@ export default class Spotify {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
                 Authorization: `Basic ${btoa(
-                    Spotify.clientId + ":03013c1224e34de0ba46dd98e1f38739"
+                    `${Spotify.client_id}:${Spotify.client_secret}`
                 )}`,
             },
             body: new URLSearchParams(formData),
