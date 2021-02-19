@@ -1,0 +1,22 @@
+import { EmbeddedAlbum, Iframe } from '../iframe/iframe';
+
+export default function Home() {
+  return (
+    <>
+      <Iframe
+        height="56"
+        url="https://open.spotify.com/follow/1/?uri=spotify:artist:77k8Ock8xJ8UVCMGR7bVup&size=detail&theme=dark"
+      />
+      <EmbeddedAlbum url="https://open.spotify.com/embed/track/27RMWQRyOzOuqFiNFA6UnY" />
+      <EmbeddedAlbum url="https://open.spotify.com/embed/track/31FTac3rJ5fYidpA8axd2r" />
+      <EmbeddedAlbum url="https://open.spotify.com/embed/album/6dYcouiQ3ywpXgNfwmLdlR" />
+      {/* <EmbeddedAlbum url="https://embed.music.apple.com/us/album/imminent-euphoria-ep/1535333016" /> */}
+      <EmbeddedAlbum url="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/991434859&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true" />
+      <EmbeddedAlbum url="https://bandcamp.com/EmbeddedPlayer/album=3920738786/size=large/bgcol=ffffff/linkcol=f171a2/artwork=small/transparent=true/">
+        <a href="http://miamaddenmusic.bandcamp.com/album/imminent-euphoria">
+          Imminent Euphoria by MIA
+        </a>
+      </EmbeddedAlbum>
+    </>
+  );
+}

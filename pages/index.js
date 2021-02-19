@@ -1,56 +1,64 @@
 import Head from 'next/head';
 import * as styles from '../styles/styles';
+import SocialMedia from '../pagecomponents/social';
+import Router, { Link } from '../pagecomponents/router';
+import PageTransition from '../pagecomponents/transition';
 
-function SocialMediaIcon({ link, alt, logo, style }) {
+function Tab({ route }) {
+  const { page } = Router.use();
   return (
-    <a href={link} target="_blank">
-      <img alt={alt} width="50px" height="50px" src={logo} style={style}></img>
-    </a>
+    <Link
+      route={route}
+      style={{
+        ...styles.pageLink,
+        ...(route === page ? styles.pageLink.selected : {}),
+      }}
+    >
+      {route.toUpperCase()}
+    </Link>
   );
 }
 
-function SocialMedia() {
-  return (
-    <div style={styles.socialContainer}>
-      <SocialMediaIcon
-        link="https://www.instagram.com/miamaddenmusic/"
-        alt="instagram"
-        logo="/img/social/IG_Logo.png"
-      />
-      <SocialMediaIcon
-        link="https://open.spotify.com/artist/77k8Ock8xJ8UVCMGR7bVup?nd=1"
-        alt="spotify"
-        logo="/img/social/Spotify_Icon.png"
-      />
-      <SocialMediaIcon
-        link="https://www.youtube.com/user/aimiama2008/videos"
-        alt="youtube"
-        logo="/img/social/Youtube_Logo.png"
-        style={styles.logo.yt}
-      />
-      <SocialMediaIcon
-        link="https://www.tiktok.com/@miamaddenmusic"
-        alt="tiktok"
-        logo="/img/social/TikTok_Logo.svg"
-      />
-      <SocialMediaIcon
-        link="https://www.facebook.com/miamaddenmusic/"
-        alt="facebook"
-        logo="/img/social/FB_Logo.png"
-        style={styles.logo.fb}
-      />
-    </div>
-  );
-}
-
-export default function Home() {
+export default function Home({ children }) {
   return (
     <main>
       <Head>
         <title>M I A | New Single out now!</title>
       </Head>
-      <h1 style={styles.MIA}>M I A</h1>
+      <div
+        style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          height: '100vh',
+          width: '100vw',
+          textAlign: 'center',
+          pointerEvents: 'none',
+          animation: styles.animation.slideup,
+          zIndex: -1,
+        }}
+      >
+        <svg
+          style={{ width: 'min(100vw, 100vh)', height: '100vh' }}
+          viewBox="0 0 100 100"
+          preserveAspectRatio="xMidYMid slice"
+        >
+          <image href="/img/MAMA/mamacowboy.png" height="100" width="100" />
+        </svg>
+      </div>
+      <Link route="home">
+        <h1 style={styles.MIA}>M I A</h1>
+      </Link>
+      <a style={styles.header}>1-800-RUNAWAY OUT NOW LISTEN ON SPOTIFY</a>
       <SocialMedia />
+      <div style={styles.navbar}>
+        <Tab route="music" />
+        <Tab route="media" />
+        <Tab route="about" />
+        <PageTransition>
+          <div style={styles.tabContent}>{children}</div>
+        </PageTransition>
+      </div>
     </main>
   );
 }

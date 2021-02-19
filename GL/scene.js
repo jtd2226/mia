@@ -1,6 +1,7 @@
 import * as THREE from 'three';
-import vertexShader from '../glsl/vertex.glsl';
-import fragmentShader from '../glsl/fragment.glsl';
+import vertexShader from './vertex.glsl';
+import fragmentShader from './fragment.glsl';
+import { useEffect, useRef } from 'react';
 
 function debounce(fn, wait = 400) {
   let timeout = null;
@@ -14,8 +15,6 @@ function debounce(fn, wait = 400) {
     });
   };
 }
-
-const imageURLS = ['/img/MAMA/miaxsatara.jpg'];
 
 const fade = (element, out = false, duration = 300) =>
   new Promise(resolve => {
@@ -44,8 +43,9 @@ const vFov = (cameraFov * Math.PI) / 180;
 const planeHeight = 2 * Math.tan(vFov / 2) * cameraDistance;
 const timeMultiplier = 0.2;
 
-export default class Scene {
-  constructor(canvas) {
+class Scene {
+  constructor(canvas, images) {
+    this.images = [].concat(images);
     this.container = canvas;
 
     this.W = window.outerWidth;
@@ -68,7 +68,7 @@ export default class Scene {
     this.renderer.setPixelRatio(window.devicePixelRatio);
 
     this.clock = new THREE.Clock();
-    this.loadBGImage(imageURLS[0]);
+    this.loadBGImage(this.images[0]);
   };
 
   initCamera() {
@@ -79,6 +79,15 @@ export default class Scene {
     this.camera.updateProjectionMatrix();
     this.camera.lookAt(this.mainScene.position);
   }
+
+  dispose = () => {
+    this.uniforms.tDiffuse.value.dispose();
+    this.cube.geometry.dispose();
+    this.cube.material.dispose();
+    this.planeGeometry.dispose();
+    this.renderer.dispose();
+    cancelAnimationFrame(this.animationId);
+  };
 
   initLights() {
     // const ambientlight = new THREE.AmbientLight(0xffffff);
@@ -193,11 +202,13 @@ export default class Scene {
   };
 
   makeSlideshow() {
+    this.dispose();
     const loader = new THREE.TextureLoader();
-    const url = imageURLS[Math.floor(Math.random() * imageURLS.length)];
+    const url = this.images[Math.floor(Math.random() * this.images.length)];
     const texture = loader.load(url, () => {
       this.uniforms.tDiffuse.value = texture;
-      setTimeout(this.makeSlideshow.bind(this), 10000);
+      if (this.images.length > 1)
+        setTimeout(this.makeSlideshow.bind(this), 10000);
     });
   }
 
@@ -224,4 +235,20 @@ export default class Scene {
       this.hidePlayer();
     }
   };
+}
+
+export default function World({ children, images }) {
+  const canvas = useRef();
+  useEffect(() => {
+    const scene = new Scene(canvas.current, images);
+    return () => {
+      scene.dispose();
+    };
+  }, []);
+  return (
+    <>
+      <canvas id="scene" ref={canvas} />
+      {children}
+    </>
+  );
 }

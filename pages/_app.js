@@ -1,16 +1,18 @@
 import '../styles/globals.css';
 import '../styles/animations.css';
-import Scene from '../scene/scene';
-import { useEffect, StrictMode } from 'react';
+import { StrictMode } from 'react';
+import Head from 'next/head';
+import Error from '../error/index';
 
-function MyApp({ Component, pageProps }) {
-  useEffect(() => {
-    new Scene(document.getElementById('scene'));
-  }, []);
+function MyApp({ Component, router, pageProps }) {
   return (
     <StrictMode>
-      <canvas id="scene"></canvas>
-      <Component {...pageProps} />
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Error>
+        <Component {...{ ...pageProps, router }} />
+      </Error>
     </StrictMode>
   );
 }

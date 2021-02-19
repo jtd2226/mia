@@ -4,11 +4,16 @@ body {
 }
 
 body {
-  background: #01a5f0;
+  background: #8eeeff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@font-face {
+  font-family: 'Cute';
+  src: url('../public/fonts/C800.ttf');
 }
 
 #scene {
