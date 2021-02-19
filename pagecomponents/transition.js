@@ -50,7 +50,7 @@ export default function PageTransition({ children }) {
           },
         }}
         transition={{
-          x: { type: 'spring', stiffness: 300, damping: 30 },
+          x: { type: 'spring', stiffness: 250, damping: 40 },
           opacity: { duration: 0.2 },
         }}
         drag="x"
