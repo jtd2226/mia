@@ -1,7 +1,7 @@
 export const color = {
   white: '#efefef',
-  pink: '#f9d0df',
-  blue: '#8eeeffab',
+  pink: '#d0c6ffb8',
+  blue: '#0196ff40',
   textShadow: {
     primary: '#d0c6ffb8',
     secondary: '#0196ff40',
