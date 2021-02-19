@@ -7,6 +7,7 @@ export default function Home() {
         height="56"
         url="https://open.spotify.com/follow/1/?uri=spotify:artist:77k8Ock8xJ8UVCMGR7bVup&size=detail&theme=dark"
       />
+      <EmbeddedAlbum url="https://open.spotify.com/embed/track/3EXxdgx5zDyEUswBOuDVrK" />
       <EmbeddedAlbum url="https://open.spotify.com/embed/track/27RMWQRyOzOuqFiNFA6UnY" />
       <EmbeddedAlbum url="https://open.spotify.com/embed/track/31FTac3rJ5fYidpA8axd2r" />
       <EmbeddedAlbum url="https://open.spotify.com/embed/album/6dYcouiQ3ywpXgNfwmLdlR" />
