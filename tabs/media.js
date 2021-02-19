@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { EmbeddedVideo } from '../iframe/iframe';
 import useSWR from 'swr';
 import { getLatestVideos } from '../youtube/api';

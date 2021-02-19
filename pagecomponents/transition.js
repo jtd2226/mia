@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Router from '../pagecomponents/router';
-import { useCallback, useMemo, useState, useEffect } from 'react';
+import { useCallback, useMemo } from 'react';
 
 const swipeConfidenceThreshold = 10000;
 const swipePower = (offset, velocity) => {
