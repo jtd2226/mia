@@ -43,7 +43,6 @@ export const header = {
   textAlign: 'center',
   margin: '15px 0 30px 0',
   animation: animation.fade,
-  padding: '0 0.5rem',
   boxSizing: 'border-box',
   display: 'block',
   fontWeight: 'bold',
@@ -62,14 +61,11 @@ export const contact = {
 export const socialContainer = {
   display: 'flex',
   width: dimensions.width,
-  padding: '0 0.5rem',
   boxSizing: 'border-box',
   maxWidth: '100vw',
   flexWrap: 'wrap',
   zIndex: zIndex.top,
-  gap: '20px 50px',
   justifyContent: 'space-around',
-  margin: '15px 0',
   animation: animation.fadein,
 };
 
@@ -88,13 +84,11 @@ export const logo = {
 export const navbar = {
   display: 'flex',
   width: dimensions.width,
-  padding: '0 0.5rem',
   boxSizing: 'border-box',
   maxWidth: '100vw',
   flexWrap: 'wrap',
   zIndex: '2000',
   justifyContent: 'space-around',
-  margin: '15px 0',
   transition: 'background-color 0.5s',
   position: 'sticky',
   animation: animation.fadein,
@@ -120,9 +114,9 @@ export const pageLink = {
 export const tabContent = {
   marginTop: '20px',
   width: dimensions.width,
-  padding: '0 0.5rem',
   boxSizing: 'border-box',
   maxWidth: '100vw',
   boxSizing: 'border-box',
   position: 'relative',
+  zIndex: -1,
 };

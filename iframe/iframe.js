@@ -24,6 +24,7 @@ export function Iframe({ url, children, style, height }) {
       allow="autoplay *; fullscreen; encrypted-media *; fullscreen *; gyroscope; accelerometer; picture-in-picture"
       style={{
         background: 'transparent',
+        zIndex: -1,
         animation: loading
           ? 'loadingshimmer 1s linear alternate infinite'
           : 'none',

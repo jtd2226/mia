@@ -54,7 +54,8 @@ export default function PageTransition({ children }) {
           opacity: { duration: 0.2 },
         }}
         drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
+        dragPropagation={true}
+        dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
         dragElastic={1}
         onDragEnd={(e, { offset, velocity }) => {
           const swipe = swipePower(offset.x, velocity.x);

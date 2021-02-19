@@ -12,7 +12,7 @@ const routes = {
         style={{
           display: 'block',
           textAlign: 'center',
-          marginTop: '200px',
+          marginTop: '50%',
         }}
       >
         <img

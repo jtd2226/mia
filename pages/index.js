@@ -49,7 +49,7 @@ export default function Home({ children }) {
       <Link route="home">
         <h1 style={styles.MIA}>M I A</h1>
       </Link>
-      <a style={styles.header}>1-800-RUNAWAY OUT NOW LISTEN ON SPOTIFY</a>
+      {/* <a style={styles.header}>1-800-RUNAWAY OUT NOW LISTEN ON SPOTIFY</a> */}
       <SocialMedia />
       <div style={styles.navbar}>
         <Tab route="music" />

@@ -10,7 +10,20 @@ function SocialMediaIcon({
   background,
 }) {
   return (
-    <a href={link} target="_blank" style={{ position: 'relative' }}>
+    <a
+      href={link}
+      target="_blank"
+      style={{
+        position: 'relative',
+        flex: '1 0 100px',
+        height: '70px',
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <img
         alt={alt}
         width={width ?? '50px'}
@@ -23,10 +36,11 @@ function SocialMediaIcon({
           style={{
             background,
             position: 'absolute',
-            top: '10%',
-            left: '10%',
-            width: '80%',
-            height: '60%',
+            top: '50%',
+            left: '50%',
+            width: '45px',
+            height: '45px',
+            transform: 'translate(-50%, -50%)',
             borderRadius: '50%',
             zIndex: -1,
           }}
