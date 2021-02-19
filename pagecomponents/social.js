@@ -15,7 +15,7 @@ function SocialMediaIcon({
       target="_blank"
       style={{
         position: 'relative',
-        flex: '1 0 100px',
+        flex: '1 0 25%',
         height: '70px',
         textAlign: 'center',
         display: 'flex',
@@ -54,16 +54,29 @@ export default function SocialMedia() {
   return (
     <div style={styles.socialContainer}>
       <SocialMediaIcon
+        link="https://miamaddenmusic.bandcamp.com"
+        alt="band camp"
+        logo="/img/social/Bandcamp_Icon.png"
+        width="54px"
+        height="54px"
+      />
+      <SocialMediaIcon
         link="https://music.apple.com/us/artist/mia-madden/id1527337487"
         alt="spotify"
         logo="/img/social/Apple_Icon.svg"
         style={{ borderRadius: '50%' }}
       />
       <SocialMediaIcon
-        link="https://www.youtube.com/user/aimiama2008/videos"
-        alt="youtube"
-        logo="/img/social/Youtube_Logo.png"
-        style={styles.logo.yt}
+        link="https://www.tiktok.com/@miamaddenmusic"
+        alt="tiktok"
+        logo="/img/social/TikTok_Logo.svg"
+        style={styles.logo.tiktok}
+      />
+      <SocialMediaIcon
+        link="https://www.facebook.com/miamaddenmusic/"
+        alt="facebook"
+        logo="/img/social/FB_Logo.png"
+        style={styles.logo.fb}
       />
       <SocialMediaIcon
         link="https://www.instagram.com/miamaddenmusic/"
@@ -79,23 +92,10 @@ export default function SocialMedia() {
         background="#191414"
       />
       <SocialMediaIcon
-        link="https://www.tiktok.com/@miamaddenmusic"
-        alt="tiktok"
-        logo="/img/social/TikTok_Logo.svg"
-        style={styles.logo.tiktok}
-      />
-      <SocialMediaIcon
-        link="https://miamaddenmusic.bandcamp.com"
-        alt="band camp"
-        logo="/img/social/Bandcamp_Icon.png"
-        width="54px"
-        height="54px"
-      />
-      <SocialMediaIcon
-        link="https://www.facebook.com/miamaddenmusic/"
-        alt="facebook"
-        logo="/img/social/FB_Logo.png"
-        style={styles.logo.fb}
+        link="https://www.youtube.com/user/aimiama2008/videos"
+        alt="youtube"
+        logo="/img/social/Youtube_Logo.png"
+        style={styles.logo.yt}
       />
     </div>
   );
