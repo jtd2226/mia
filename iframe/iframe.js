@@ -1,40 +1,51 @@
-import { useEffect, useRef, useState } from 'react';
-
+import { useEffect, useRef, useState, useMemo } from 'react';
+import { useTransition } from '../pagecomponents/transition';
 const color = {
   background: '#8eeeffab',
 };
 
+const Loader = ({ children, style }) => <div style={style}>{children}</div>;
+
 export function Iframe({ url, children, style, height }) {
   const frame = useRef();
   const [loading, setLoading] = useState(true);
+  const { animating } = useTransition();
+  const isLoading = useMemo(() => loading || animating, [loading, animating]);
+  function onLoadStart() {
+    setLoading(true);
+  }
   function onload() {
     setLoading(false);
   }
   useEffect(() => {
+    if (!frame) return;
     const ref = frame.current;
+    ref.addEventListener('loadstart', onLoadStart);
     ref.addEventListener('load', onload);
     return () => {
       ref.removeEventListener('load', onload);
+      ref.removeEventListener('loadstart', onLoadStart);
     };
   }, []);
   return (
-    <iframe
-      ref={frame}
-      src={url}
-      allow="autoplay *; fullscreen; encrypted-media *; fullscreen *; gyroscope; accelerometer; picture-in-picture"
-      style={{
-        background: 'transparent',
-        zIndex: -1,
-        animation: loading
-          ? 'loadingshimmer 1s linear alternate infinite'
-          : 'none',
-        ...style,
-      }}
-      {...{ height }}
-      frameBorder="0"
-    >
-      {children}
-    </iframe>
+    <>
+      <iframe
+        ref={frame}
+        src={url}
+        allow="autoplay *; fullscreen; encrypted-media *; fullscreen *; gyroscope; accelerometer; picture-in-picture"
+        style={{
+          display: isLoading ? 'none' : 'block',
+          background: 'transparent',
+          zIndex: -1,
+          ...style,
+        }}
+        {...{ height }}
+        frameBorder="0"
+      >
+        {children}
+      </iframe>
+      {isLoading && <Loader style={style}>{children}</Loader>}
+    </>
   );
 }
 
