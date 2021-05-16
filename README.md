@@ -1,3 +1,14 @@
+# Installing project for the first time
+
+- Install npm: https://www.npmjs.com/get-npm
+- Install yarn: `npm i --global yarn`
+- Install localtunnel: `yarn add global localtunnel`
+
+# Running the application:
+
+- yarn dev
+- default port is https://localhost:8080
+
 # Other Stuff
 
 - Add metadata for mia's artist profile on google
