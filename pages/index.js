@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import * as styles from '../styles/styles';
 import SocialMedia from '../pagecomponents/social';
-import Router, { Link } from '../pagecomponents/router';
-import PageTransition from '../pagecomponents/transition';
+import Router, { Link } from '../routes/router';
+import PageTransition from '../routes/transition';
 
 function Tab({ route }) {
   const { page } = Router.use();
