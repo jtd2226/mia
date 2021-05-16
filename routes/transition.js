@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import Router from '../pagecomponents/router';
+import Router from './router';
 import {
   useCallback,
   useMemo,

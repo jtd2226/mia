@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import Router from '../pagecomponents/router';
+import Router from '../routes/router';
 
 const Backgrounds = {
   defaultImage: '/img/MAMA/mamacloud.jpg',

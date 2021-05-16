@@ -6,21 +6,7 @@ const Home = dynamic(() => import('../pages/index'));
 
 const routes = {
   home: {
-    component: () => (
-      <a
-        href="mailto:miamaddenmgmt@gmail.com"
-        style={{
-          display: 'block',
-          textAlign: 'center',
-          marginTop: '50%',
-        }}
-      >
-        <img
-          src="/img/contact-button.png"
-          style={{ width: '200px', borderRadius: '8px' }}
-        />
-      </a>
-    ),
+    component: dynamic(() => import('../pagecomponents/home')),
   },
   music: {
     component: dynamic(() => import('../tabs/music')),
@@ -30,6 +16,9 @@ const routes = {
   },
   about: {
     component: dynamic(() => import('../tabs/about')),
+  },
+  presave: {
+    component: dynamic(() => import('../pagecomponents/presave')),
   },
 };
 
