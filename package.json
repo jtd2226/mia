@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8080 & lt --port 8080",
-    "dev:prod": "yarn build && yarn start -p 8080 & lt --port 8080",
+    "dev": "lt --port 5000 & next dev -p 5000",
+    "dev:prod": "yarn build && yarn start -p 5000 & lt --port 5000",
     "build": "next build",
     "start": "next start"
   },
