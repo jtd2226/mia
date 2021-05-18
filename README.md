@@ -7,7 +7,7 @@
 # Running the application:
 
 - yarn dev
-- default port is https://localhost:8080
+- default port is https://localhost:5000
 
 # Other Stuff
 
@@ -23,8 +23,8 @@
 
 ## Store user info using GCP
 
-- Store user access token and e-mail in GCP
-  - Use Firestore to ensure it is encrypted or bad things can happen (firestore encrypts data automatically)
+- Store user refresh token and e-mail in firestore
+  - firestore encrypts data automatically
 - Steps
   - Make pre-save button on home page
   - make `api/spotify/store` route for storing data in firestore
@@ -32,7 +32,7 @@
     - [using firebase admin sdk](https://firebase.google.com/docs/admin/setup)
     - client will pass oauth token and e-mail in json body
     - server will store data in firestore using the firebase admin sdk
-  - Make `/presave` route that will authenticate user on load and automatically store info needed for cloud task to save song to users spotify account
+  - Make `/presave` route that will authenticate user when the page loads and automatically store info needed for cloud task to save song to users spotify account
     - Clicking presave button will redirect here
     - User can also go to link directly
 

@@ -1,8 +1,11 @@
 function saveCredentials(credentials) {
-  fetch('/api/presave', {
+  fetch('/api/spotify/store', {
     method: 'POST',
     body: JSON.stringify(credentials),
-  }).catch(console.error);
+  })
+    .then(r => r.json())
+    .then(data => (data.error ? console.error(data.error) : console.log(data)))
+    .catch(console.error);
 }
 
 export default function PreSave() {
