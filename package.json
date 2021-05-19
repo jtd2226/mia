@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "lt --port 5000 & next dev -p 5000",
+    "tunnel": "lt --port 5000 & next dev -p 5000",
+    "dev:debug": "lt --port 5000 & NODE_OPTIONS='--inspect' next dev -p 5000",
     "dev:prod": "yarn build && yarn start -p 5000 & lt --port 5000",
     "build": "next build",
     "start": "next start"
