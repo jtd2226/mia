@@ -25,7 +25,7 @@ export default function Home({ children }) {
       <Head>
         <title>M I A | New Single out now!</title>
       </Head>
-      <div
+      {/* <div
         style={{
           position: 'fixed',
           top: '0',
@@ -45,7 +45,7 @@ export default function Home({ children }) {
         >
           <image href="/img/MAMA/mamacowboy.png" height="100" width="100" />
         </svg>
-      </div>
+      </div> */}
       <Link route="home">
         <h1 style={styles.MIA}>M I A</h1>
       </Link>

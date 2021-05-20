@@ -35,6 +35,7 @@
   - Make `/presave` route that will authenticate user when the page loads and automatically store info needed for cloud task to save song to users spotify account
     - Clicking presave button will redirect here
     - User can also go to link directly
+    - When pre-save date has passed, replace presave link with link to new song
 
 ## Save song using Cloud Tasks
 
@@ -55,3 +56,14 @@
   - build admin page for mia to send out e-mails using the stored e-mails as a mailing list
   - allow mia to schedule new releases in admin page
   - have music page get data from spotify and build custom ui instead of using iframes
+
+NEW SONG UPC
+196164375471
+
+Example query
+curl -X "GET" "https://api.spotify.com/v1/search?q=upc:196164375471&type=track%2Calbum" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQCdqJ3FBy4GcNT_DS9DMygYbEU-kwwsFN8BW3vYLA9_CmGwMhHKTz_ngO5flp1tZMQUV5mPpZAEs8CoLVbii59heDvnHOCFGDYCH29oSDverGDv7Yv9X1rrARRfM-NR5-HdLpVtl-lDvXe3IbMiOprNPKu-ZRtwiGGcW9li_zxupOFwM2k"
+
+TEST SONG UPC
+195939895060
+
+curl -X "GET" "https://api.spotify.com/v1/search?q=upc:195939895060&type=track%2Calbum" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQCdqJ3FBy4GcNT_DS9DMygYbEU-kwwsFN8BW3vYLA9_CmGwMhHKTz_ngO5flp1tZMQUV5mPpZAEs8CoLVbii59heDvnHOCFGDYCH29oSDverGDv7Yv9X1rrARRfM-NR5-HdLpVtl-lDvXe3IbMiOprNPKu-ZRtwiGGcW9li_zxupOFwM2k"

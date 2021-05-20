@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 function saveCredentials(credentials) {
   fetch('/api/spotify/store', {
     method: 'POST',
@@ -9,6 +11,14 @@ function saveCredentials(credentials) {
 }
 
 export default function PreSave() {
+  // const [session, loading] = useSession();
+
+  // useEffect(() => {
+  //   if (session) console.log({ session });
+  //   else if (loading) console.log('loading');
+  //   else signIn();
+  // }, [session, loading]);
+
   return (
     <button
       onClick={() => {

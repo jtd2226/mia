@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "tunnel": "lt --port 5000 & next dev -p 5000",
+    "dev": "lt --port 5000 & next dev -p 5000",
     "dev:debug": "lt --port 5000 & NODE_OPTIONS='--inspect' next dev -p 5000",
     "dev:prod": "yarn build && yarn start -p 5000 & lt --port 5000",
     "build": "next build",
@@ -15,7 +15,6 @@
     "firebase-admin": "^9.8.0",
     "framer-motion": "^3.3.0",
     "next": "10.0.6",
-    "next-auth": "^3.23.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "swr": "^0.4.2",
