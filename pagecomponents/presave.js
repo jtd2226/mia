@@ -19,15 +19,15 @@ function login() {
 }
 function authorize(code) {
   const grant_type = 'authorization_code';
-  return spotify.POST.path('api/token')
-    .headers({
-      Authorization: `Basic ${btoa(`${client_id}:${client_secret}`)}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
-    })
-    .form({ grant_type, code, redirect_uri })
-    .send()
-    .then(saveCredentials);
+  return (
+    spotify.POST.path('api/token')
+      // .headers({
+      //   Authorization: `Basic ${btoa(`${client_id}:${client_secret}`)}`,
+      // })
+      .form({ grant_type, code, redirect_uri, client_id, client_secret })
+      .send()
+      .then(saveCredentials)
+  );
 }
 function saveCredentials(credentials) {
   fetch('/api/spotify/store', {

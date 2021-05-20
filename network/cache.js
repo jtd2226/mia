@@ -182,10 +182,15 @@ const CacheRequest = (url = '', query = '', options) =>
       }, new FormData());
       return CacheRequest(url, query, {
         ...options,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          ...(options.headers ?? {}),
+        },
         body: new URLSearchParams(body),
       });
     },
     send: function () {
+      if (!options.headers.Accept) options.headers.Accept = 'application/json';
       return fetch(fullURL, options)
         .then(r => r.json())
         .then(data => {
