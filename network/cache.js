@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState, useRef } from "react";
-import { debounce } from "./util";
-import { uniqueId } from "lodash";
-import { ClientError } from "network/error";
+import { useCallback, useEffect, useState, useRef } from 'react';
+import { debounce } from './util';
+import { uniqueId } from 'lodash';
+import { ClientError } from 'network/error';
 
 const Cache = {
   queue: [],
@@ -24,11 +24,11 @@ const Cache = {
     Cache.set(url, { data, error, loading: true });
     const state = { data };
     return fetcher(url, ...args)
-      .then((data) => {
+      .then(data => {
         state.data = data;
         return data;
       })
-      .catch((error) => {
+      .catch(error => {
         state.error = error;
       })
       .finally(() => {
@@ -40,12 +40,12 @@ const Cache = {
     const { data, error } = Cache.get(url);
     Cache.set(url, { data, error, loading: true });
     const state = { data };
-    return mutator.then((data) => {
+    return mutator.then(data => {
       fetcher(url)
-        .then((data) => {
+        .then(data => {
           state.data = data;
         })
-        .catch((error) => {
+        .catch(error => {
           state.error = error;
           throw error;
         })
@@ -61,7 +61,7 @@ const Cache = {
       add(callback) {
         if (!Cache[url]) Cache[url] = { listeners: {} };
         const { listeners } = Cache[url];
-        const id = uniqueId("cache-listener-");
+        const id = uniqueId('cache-listener-');
         listeners[id] = callback;
         const { data } = Cache.get(url);
         const send = data && once ? () => Promise.resolve(data) : fetcher;
@@ -113,19 +113,19 @@ function useSync({ url, fetcher, mutator, wait = 0 }) {
     }, []);
     const send = useCallback(
       (...args) => {
-        if (loading) return Promise.reject("Already sending");
+        if (loading) return Promise.reject('Already sending');
         setData(([data]) => [data, true, null]);
         return promise(...args)
-          .then((data) => {
+          .then(data => {
             const query = Cache.fetch(url, fetcher, ...args);
             return data ?? query;
           })
-          .then((data) => {
+          .then(data => {
             if (!isMounted.current) return data;
             setData([data, false, null]);
             return data;
           })
-          .catch((err) => {
+          .catch(err => {
             if (!isMounted.current) return;
             setData(([data]) => [data, false, err]);
             throw err;
@@ -137,10 +137,10 @@ function useSync({ url, fetcher, mutator, wait = 0 }) {
   })(url);
 }
 
-export const Path = (...args) => args.filter((x) => !!x).join("/");
+export const Path = (...args) => args.filter(x => !!x).join('/');
 
-const CacheRequest = (url = "", query = "", options) =>
-  ((fullURL) => ({
+const CacheRequest = (url = '', query = '', options) =>
+  (fullURL => ({
     url: url,
     queryParams: query,
     fullURL,
@@ -148,12 +148,12 @@ const CacheRequest = (url = "", query = "", options) =>
       return callback(CacheRequest(url, query, options));
     },
     path: (...args) => CacheRequest(Path(url, ...args), query, options),
-    headers: (headers) => CacheRequest(url, query, { ...options, headers }),
-    query: (obj) => {
+    headers: headers => CacheRequest(url, query, { ...options, headers }),
+    query: obj => {
       if (!obj || !Object.keys(obj).length)
         return CacheRequest(url, query, options);
-      if (!query) query += "?";
-      else query += "&";
+      if (!query) query += '?';
+      else query += '&';
       return CacheRequest(
         url,
         query +
@@ -162,32 +162,35 @@ const CacheRequest = (url = "", query = "", options) =>
             .map(
               ([key, value]) =>
                 `${key}=${
-                  typeof value === "object" ? JSON.stringify(value) : value
+                  typeof value === 'object' ? JSON.stringify(value) : value
                 }`
             )
-            .join("&"),
+            .join('&'),
         options
       );
     },
     get POST() {
-      return CacheRequest(url, query, { ...options, method: "POST" });
+      return CacheRequest(url, query, { ...options, method: 'POST' });
     },
-    json: (body) =>
+    json: body =>
       CacheRequest(url, query, { ...options, body: JSON.stringify(body) }),
-    raw: (body) => CacheRequest(url, query, { ...options, body }),
-    form: (obj) => {
+    raw: body => CacheRequest(url, query, { ...options, body }),
+    form: obj => {
       const body = Object.entries(obj).reduce((f, [key, value]) => {
         f.append(key, value);
         return f;
       }, new FormData());
-      return CacheRequest(url, query, { ...options, body });
+      return CacheRequest(url, query, {
+        ...options,
+        body: new URLSearchParams(body),
+      });
     },
     send: function () {
       return fetch(fullURL, options)
-        .then((r) => r.json())
-        .then((data) => {
+        .then(r => r.json())
+        .then(data => {
           if (data.error) {
-            logger.error(data.error);
+            console.error(data);
             throw new ClientError(data.error);
           } else return data;
         });
