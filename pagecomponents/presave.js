@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
 
+const scopes =
+  'playlist-modify-public playlist-modify-private playlist-read-private playlist-read-collaborative user-follow-modify user-follow-read user-library-modify user-library-read user-read-email';
+
 function saveCredentials(credentials) {
   fetch('/api/spotify/store', {
     method: 'POST',
