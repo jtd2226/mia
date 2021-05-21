@@ -172,6 +172,9 @@ const CacheRequest = (url = '', query = '', options) =>
     get POST() {
       return CacheRequest(url, query, { ...options, method: 'POST' });
     },
+    get PUT() {
+      return CacheRequest(url, query, { ...options, method: 'PUT' });
+    },
     json: body =>
       CacheRequest(url, query, { ...options, body: JSON.stringify(body) }),
     raw: body => CacheRequest(url, query, { ...options, body }),
@@ -184,13 +187,12 @@ const CacheRequest = (url = '', query = '', options) =>
         ...options,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-          ...(options.headers ?? {}),
+          ...(options?.headers ?? {}),
         },
         body: new URLSearchParams(body),
       });
     },
     send: function () {
-      if (!options.headers.Accept) options.headers.Accept = 'application/json';
       return fetch(fullURL, options)
         .then(r => r.json())
         .then(data => {
