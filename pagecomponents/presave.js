@@ -75,7 +75,7 @@ function getMiasSong() {
 }
 
 /*
-curl -X "PUT" "https://api.spotify.com/v1/me/tracks?ids=7ouMYWpwJ422jRcDASZB7P%2C4VqPOruhp5EdPBeR92t6lQ%2C2takcwOaAZWiXQijPHIx7B" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer BQCdqJ3FBy4GcNT_DS9DMygYbEU-kwwsFN8BW3vYLA9_CmGwMhHKTz_ngO5flp1tZMQUV5mPpZAEs8CoLVbii59heDvnHOCFGDYCH29oSDverGDv7Yv9X1rrARRfM-NR5-HdLpVtl-lDvXe3IbMiOprNPKu-ZRtwiGGcW9li_zxupOFwM2k"
+curl -X "PUT" "https://api.spotify.com/v1/me/tracks?ids=7ouMYWpwJ422jRcDASZB7P%2C4VqPOruhp5EdPBeR92t6lQ%2C2takcwOaAZWiXQijPHIx7B" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer <token>"
 */
 function likeMiasSong() {
   return getMiasSong().then(({ id }) =>
