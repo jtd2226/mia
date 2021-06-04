@@ -34,16 +34,16 @@ export default function Home({ children }) {
           width: '100vw',
           textAlign: 'center',
           pointerEvents: 'none',
-          animation: styles.animation.slideup,
           zIndex: -1,
         }}
       >
         <svg
           style={{ width: 'min(100vw, 100vh)', height: '100vh' }}
           viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid slice"
+          preserveAspectRatio="xMaxYMax slice"
         >
           <image href="/img/MAMA/mamacowboy.png" height="100" width="100" />
+          <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
       <Link route="home">

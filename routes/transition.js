@@ -28,7 +28,7 @@ const swipePower = (offset, velocity) => {
   return Math.abs(offset) * velocity;
 };
 
-const TransitionContext = createContext();
+const TransitionContext = createContext({});
 export const useTransition = () => useContext(TransitionContext);
 
 export default function PageTransition({ children }) {
@@ -51,6 +51,7 @@ export default function PageTransition({ children }) {
     },
     [current, direction]
   );
+  return children;
   return (
     <TransitionContext.Provider value={{ animating: animating || dragging }}>
       <AnimatePresence>

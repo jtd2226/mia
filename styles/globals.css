@@ -4,14 +4,32 @@ body {
 }
 
 body {
-  background: url('/img/MAMA/angelmama.jpg') no-repeat center center fixed;
-  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
+  margin: 0;
   overflow: hidden auto;
+}
+
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+}
+.bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
 }
 
 @font-face {

@@ -1,13 +1,18 @@
 import { Link } from '../routes/router';
-import styled from '@emotion/styled';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin-top: 20vh;
-`;
+const Container = ({ children }) => (
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      justifycontent: 'center',
+      textAlign: 'center',
+      marginTop: '20vh',
+    }}
+  >
+    {children}
+  </div>
+);
 
 export default function Home() {
   return (
