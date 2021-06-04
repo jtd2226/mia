@@ -11,6 +11,7 @@ function MyApp({ Component, router, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Error>
+        <div className="bg" />
         <Component {...{ ...pageProps, router }} />
       </Error>
     </StrictMode>

@@ -88,7 +88,7 @@ export const navbar = {
   display: 'flex',
   width: dimensions.width,
   boxSizing: 'border-box',
-  maxWidth: '100vw',
+  maxWidth: '95vw',
   flexWrap: 'wrap',
   zIndex: '2000',
   gap: '12px',
@@ -101,7 +101,6 @@ export const navbar = {
 
 export const pageLink = {
   color: color.angel,
-  padding: '12px',
   fontSize: '40px',
   fontWeight: 'bold',
   textShadow: `rgb(102 102 104 / 72%) 6px 6.5px 6px`,
@@ -110,6 +109,7 @@ export const pageLink = {
   letterSpacing: '3px',
   pointerEvents: 'all',
   cursor: 'pointer',
+  boxSizing: 'border-box',
   selected: {
     transform: 'scale(1.25)',
   },
@@ -122,5 +122,4 @@ export const tabContent = {
   maxWidth: '100vw',
   boxSizing: 'border-box',
   position: 'relative',
-  zIndex: -1,
 };

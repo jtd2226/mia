@@ -36,7 +36,6 @@ export function Iframe({ url, children, style, height }) {
         style={{
           display: isLoading ? 'none' : 'block',
           background: 'transparent',
-          zIndex: -1,
           ...style,
         }}
         {...{ height }}
@@ -54,7 +53,7 @@ export function EmbeddedAlbum(props) {
     <Iframe
       style={{
         width: '100%',
-        height: '300px',
+        height: props.compact ? '80px' : '300px',
         borderRadius: '8px',
         marginBottom: '20px',
         background: color.background,

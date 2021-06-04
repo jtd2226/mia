@@ -44,11 +44,5 @@ export default function SlugPage(props) {
   const routeInfo = Router.routes[slug];
   const background = routeInfo.background || Backgrounds.main;
   const Background = background.component || Backgrounds.main.component;
-  return (
-    <Background
-      images={background.images || background.image || Backgrounds.defaultImage}
-    >
-      <Router {...props} />
-    </Background>
-  );
+  return <Router {...props} />;
 }
