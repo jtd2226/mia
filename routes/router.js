@@ -17,9 +17,9 @@ const routes = {
   about: {
     component: dynamic(() => import('../tabs/about')),
   },
-  presave: {
-    component: dynamic(() => import('../pagecomponents/presave')),
-  },
+  // presave: {
+  //   component: dynamic(() => import('../pagecomponents/presave')),
+  // },
 };
 
 const wrapped = arr =>

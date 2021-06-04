@@ -47,7 +47,7 @@ export default function Home({ children }) {
         </svg>
       </div> */}
       <Link route="home">
-        <h1 style={styles.MIA}>M I A</h1>
+        <h1 style={styles.MIA}>I'll be ur angel out now!</h1>
       </Link>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <SocialMedia />

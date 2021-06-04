@@ -4,7 +4,8 @@ import Router from '../routes/router';
 const Backgrounds = {
   defaultImage: '/img/MAMA/angelmama.jpg',
   main: {
-    component: dynamic(() => import('../GL/scene')),
+    component: ({ children }) => children,
+    // component: dynamic(() => import('../GL/scene')),
   },
 };
 

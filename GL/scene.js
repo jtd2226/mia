@@ -48,8 +48,8 @@ class Scene {
     this.images = [].concat(images);
     this.container = canvas;
 
-    this.W = window.outerWidth;
-    this.H = window.innerHeight;
+    this.W = window.innerWidth;
+    this.H = window.outerHeight;
 
     this.start();
     this.bindEvent();

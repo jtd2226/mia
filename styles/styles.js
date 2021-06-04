@@ -1,5 +1,6 @@
 export const color = {
   white: '#efefef',
+  angel: '#e7bba5',
   pink: '#d0c6ffb8',
   blue: '#0196ff40',
   textShadow: {
@@ -29,13 +30,15 @@ export const animation = {
 };
 
 export const MIA = {
-  color: color.white,
+  color: color.angel,
   cursor: 'pointer',
-  fontSize: '100px',
-  textShadow: `-3px -1.5px 0px ${color.pink}, 3px 1.5px 0 ${color.blue}`,
+  fontSize: '40px',
+  textShadow: `rgb(102 102 104 / 72%) 6px 6.5px 6px`,
   textAlign: 'center',
-  margin: 0,
-  animation: `${animation.slidedown}, ${animation.wobbledywop}`,
+  fontFamily: 'Agresiva',
+  margin: '50px',
+  letterSpacing: '3px',
+  // animation: `${animation.slidedown}, ${animation.wobbledywop}`,
 };
 
 export const header = {
@@ -88,6 +91,7 @@ export const navbar = {
   maxWidth: '100vw',
   flexWrap: 'wrap',
   zIndex: '2000',
+  gap: '12px',
   justifyContent: 'space-around',
   transition: 'background-color 0.5s',
   position: 'sticky',
@@ -96,18 +100,18 @@ export const navbar = {
 };
 
 export const pageLink = {
-  color: color.white,
+  color: color.angel,
   padding: '12px',
-  fontSize: 'xx-large',
+  fontSize: '40px',
   fontWeight: 'bold',
-  textShadow: `-1.5px -1.5px 0px ${color.textShadow.primary}, 1.5px 1.5px 0 ${color.textShadow.secondary}`,
+  textShadow: `rgb(102 102 104 / 72%) 6px 6.5px 6px`,
   transition: 'transform 0.5s',
+  fontFamily: 'Agresiva',
+  letterSpacing: '3px',
   pointerEvents: 'all',
   cursor: 'pointer',
   selected: {
-    transform: 'scale(1.35)',
-    margin: '0 12px',
-    textShadow: `-3px -3px 0px ${color.textShadow.primary}, 3px 3px 0 ${color.textShadow.secondary}`,
+    transform: 'scale(1.25)',
   },
 };
 
