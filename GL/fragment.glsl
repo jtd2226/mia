@@ -38,6 +38,7 @@ void main() {
     float mod = fbm( uv + 4.0*r, sin(t) * f * 0.008 );
 
     vec4 color = texture2D(tDiffuse, uv);
+    // vec4 color = texture2D(tDiffuse, uv + (vec2(mod)*(sin(t*10.) - 0.5)));
 
     gl_FragColor = vec4(color.rgb, 1.0);
 }

@@ -51,7 +51,6 @@ export default function PageTransition({ children }) {
     },
     [current, direction]
   );
-  return children;
   return (
     <TransitionContext.Provider value={{ animating: animating || dragging }}>
       <AnimatePresence>
