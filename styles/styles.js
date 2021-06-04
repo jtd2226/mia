@@ -96,6 +96,7 @@ export const navbar = {
   transition: 'background-color 0.5s',
   position: 'sticky',
   animation: animation.fadein,
+  margin: '30px 0',
   top: '0',
 };
 
