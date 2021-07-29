@@ -23,7 +23,7 @@ export default function Home({ children }) {
   return (
     <main>
       <Head>
-        <title>M I A | New Single out now!</title>
+        <title>M I A | Presave my new single!</title>
       </Head>
       {/* <div
         style={{
@@ -46,9 +46,13 @@ export default function Home({ children }) {
           <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
-      <Link route="home">
-        <h1 style={styles.MIA}>I'll be ur angel out now!</h1>
-      </Link>
+      <a
+        href="https://distrokid.com/hyperfollow/miamadden/forever-is-a-long-time"
+        rel="noreferrer"
+        target="_blank"
+      >
+        <h1 style={styles.MIA}>Presave Forever Is a Long Time!</h1>
+      </a>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <SocialMedia />
       <div style={styles.navbar}>
