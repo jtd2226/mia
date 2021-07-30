@@ -23,7 +23,7 @@ export default function Home({ children }) {
   return (
     <main>
       <Head>
-        <title>M I A | Presave my new single!</title>
+        <title>M I A | Forever Is a Long Time Out Now!</title>
       </Head>
       {/* <div
         style={{
@@ -51,7 +51,7 @@ export default function Home({ children }) {
         rel="noreferrer"
         target="_blank"
       >
-        <h1 style={styles.MIA}>Presave Forever Is a Long Time!</h1>
+        <h1 style={styles.MIA}>Forever Is a Long Time Out Now!</h1>
       </a>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <SocialMedia />
