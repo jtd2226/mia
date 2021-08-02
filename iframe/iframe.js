@@ -53,7 +53,7 @@ export function EmbeddedAlbum(props) {
     <Iframe
       style={{
         width: '100%',
-        height: props.compact ? '80px' : '300px',
+        height: props.compact ? '80px' : props.height ?? '300px',
         borderRadius: '8px',
         marginBottom: '20px',
         background: color.background,
