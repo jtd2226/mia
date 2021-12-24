@@ -4,15 +4,15 @@ import Router from '../routes/router';
 const Backgrounds = {
   defaultImage: '/img/MAMA/angelmama.jpg',
   main: {
-    component: ({ images, children }) => (
-      <>
-        <div className="bg">
-          <img src={images} alt="" />
-        </div>
-        {children}
-      </>
-    ),
-    // component: dynamic(() => import('../GL/scene')),
+    // component: ({ images, children }) => (
+    //   <>
+    //     <div className="bg">
+    //       <img src={images} alt="" />
+    //     </div>
+    //     {children}
+    //   </>
+    // ),
+    component: dynamic(() => import('../GL/scene')),
   },
 };
 
@@ -44,5 +44,11 @@ export default function SlugPage(props) {
   const routeInfo = Router.routes[slug];
   const background = routeInfo.background || Backgrounds.main;
   const Background = background.component || Backgrounds.main.component;
-  return <Router {...props} />;
+  return (
+    <Background
+      images={background.images || background.image || Backgrounds.defaultImage}
+    >
+      <Router {...props} />
+    </Background>
+  );
 }

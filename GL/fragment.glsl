@@ -14,10 +14,10 @@ float noise( in vec2 x ) {
 
 const mat2 rotate = mat2(0.80, 0.60, -0.600, 0.80);
 
-#define nOctaves 1
+#define nOctaves 2
 float fbm ( in vec2 _st, float t) {
     float v = -0.1+(t*0.005);
-    float a = 0.2+(t*0.001+0.001);
+    float a = 0.5+(t*0.001+0.001);
     vec2 shift = vec2(100.0);
     for (int i = 0; i < nOctaves; ++i) {
         v += a * noise(_st);
@@ -37,8 +37,7 @@ void main() {
     vec2 r = vec2( fbm( uv + -4.0*q + vec2(1.7,9.2) + sin(t), f), fbm( uv + 4.0*q + vec2(8.3,2.8) + cos(t), f) );
     float mod = fbm( uv + 4.0*r, sin(t) * f * 0.008 );
 
-    vec4 color = texture2D(tDiffuse, uv);
-    // vec4 color = texture2D(tDiffuse, uv + (vec2(mod)*(sin(t*10.) - 0.5)));
+    vec4 color = texture2D(tDiffuse, uv + (vec2(mod)*-0.1));
 
     gl_FragColor = vec4(color.rgb, 1.0);
 }
