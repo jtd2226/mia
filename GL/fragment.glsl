@@ -37,7 +37,7 @@ void main() {
     vec2 r = vec2( fbm( uv + -4.0*q + vec2(1.7,9.2) + sin(t), f), fbm( uv + 4.0*q + vec2(8.3,2.8) + cos(t), f) );
     float mod = fbm( uv + 4.0*r, sin(t) * f * 0.008 );
 
-    vec4 color = texture2D(tDiffuse, uv + (vec2(mod)*-0.1));
+    vec4 color = texture2D(tDiffuse, uv + (vec2(mod)*-0.01));
 
     gl_FragColor = vec4(color.rgb, 1.0);
 }
