@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Router from '../routes/router';
 
 const Backgrounds = {
-  defaultImage: '/img/MAMA/angelmama.jpg',
+  defaultImage: '/img/MAMA/grassymomma.jpeg',
   main: {
     // component: ({ images, children }) => (
     //   <>
