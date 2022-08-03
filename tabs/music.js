@@ -3,10 +3,6 @@ import { EmbeddedAlbum, Iframe } from '../iframe/iframe';
 export default function Home() {
   return (
     <>
-      <Iframe
-        height="56"
-        url="https://open.spotify.com/follow/1/?uri=spotify:artist:77k8Ock8xJ8UVCMGR7bVup&size=detail&theme=dark"
-      />
       <EmbeddedAlbum
         url="https://open.spotify.com/embed/album/5uJ4OU7mD7pZPBCO8vPbKA"
         height="160px"
