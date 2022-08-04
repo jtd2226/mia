@@ -2,16 +2,8 @@ import dynamic from 'next/dynamic';
 import Router from '../routes/router';
 
 const Backgrounds = {
-  defaultImage: '/img/MAMA/grassymomma.jpeg',
+  defaultImage: '/img/MAMA/background.jpeg',
   main: {
-    // component: ({ images, children }) => (
-    //   <>
-    //     <div className="bg">
-    //       <img src={images} alt="" />
-    //     </div>
-    //     {children}
-    //   </>
-    // ),
     component: dynamic(() => import('../GL/scene')),
   },
 };

@@ -46,13 +46,9 @@ export default function Home({ children }) {
           <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
-      <a
-        href="https://distrokid.com/hyperfollow/miamadden/forever-is-a-long-time"
-        rel="noreferrer"
-        target="_blank"
-      >
-        <h1 style={styles.MIA}>Forever Is a Long Time Out Now!</h1>
-      </a>
+      <Link route="home">
+        <h1 style={styles.MIA}>Mia Madden</h1>
+      </Link>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <SocialMedia />
       <div style={styles.navbar}>
