@@ -1,5 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-
+import Script from 'next/script';
 export default class MyDocument extends Document {
   render() {
     return (
@@ -23,12 +23,12 @@ export default class MyDocument extends Document {
           <meta name="author" content="Joel Davis" />
           <link rel="icon" href="/favicon.ico" />
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
-          <script
+          <Script
             async
             src="https://www.googletagmanager.com/gtag/js?id=UA-166996249-1"
-          ></script>
+          ></Script>
           {/* <!-- Google Analytics Code--> */}
-          <script
+          <Script
             dangerouslySetInnerHTML={{
               __html: `
                 window.dataLayer = window.dataLayer || [];
@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
             }}
           />
           {/* Global Site Code Pixel - Facebook Pixel */}
-          <script
+          <Script
             dangerouslySetInnerHTML={{
               __html: `
               !function(f,b,e,v,n,t,s)
