@@ -23,5 +23,6 @@
   "devDependencies": {
     "glslify-loader": "^2.0.0",
     "raw-loader": "^4.0.2"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }

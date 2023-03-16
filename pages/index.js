@@ -3,6 +3,7 @@ import * as styles from '../styles/styles';
 import SocialMedia from '../pagecomponents/social';
 import Router, { Link } from '../routes/router';
 import PageTransition from '../routes/transition';
+import { HomePageData } from 'metadata';
 
 function Tab({ route }) {
   const { page } = Router.use();
@@ -47,7 +48,7 @@ export default function Home({ children }) {
         </svg>
       </div> */}
       <Link route="home">
-        <h1 style={styles.MIA}>Mia Madden</h1>
+        <h1 style={styles.MIA}>{HomePageData.title}</h1>
       </Link>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <SocialMedia />

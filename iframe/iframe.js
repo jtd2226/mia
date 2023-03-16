@@ -34,12 +34,12 @@ export function Iframe({ url, children, style, height }) {
         src={url}
         allow="autoplay *; fullscreen; encrypted-media *; fullscreen *; gyroscope; accelerometer; picture-in-picture"
         style={{
-          display: isLoading ? 'none' : 'block',
-          background: 'transparent',
           ...style,
+          display: isLoading ? 'none' : style.display || 'block',
+          background: isLoading ? style.background : 'transparent',
+          border: style.border ?? 'none',
         }}
         {...{ height }}
-        frameBorder="0"
       >
         {children}
       </iframe>
