@@ -3,7 +3,7 @@ import * as styles from '../styles/styles';
 import SocialMedia from '../pagecomponents/social';
 import Router, { Link } from '../routes/router';
 import PageTransition from '../routes/transition';
-import { HomePageData } from 'metadata';
+import { HomePageData, SiteMetaData } from 'metadata';
 
 function Tab({ route }) {
   const { page } = Router.use();
@@ -24,7 +24,7 @@ export default function Home({ children }) {
   return (
     <main>
       <Head>
-        <title>M I A | Forever Is a Long Time Out Now!</title>
+        <title>{SiteMetaData.title}</title>
       </Head>
       {/* <div
         style={{

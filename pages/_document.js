@@ -1,26 +1,13 @@
+import { MetaTags } from 'metadata';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Script from 'next/script';
+
 export default class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
-          <meta
-            name="description"
-            content="Official website for music artist lovpune. Check out her latest single, New Found Stranger, available on all major streaming platforms."
-          />
-          <meta
-            name="keywords"
-            content="music mia madden funk psych jazz pop girl 
-                    band newindie indie indiepop 
-                    pop underground undergroundmusic
-                    new newmusic miamadden imminent 
-                    euphoria imminenteuphoria sanantonio
-                    san antonio artist bandcamp soundcloud
-                    cute cutemusic latejuly freshmusic
-                    indieplaylist indie2020 pop2020 2020 lovpune"
-          />
-          <meta name="author" content="Mia Madden" />
+          <MetaTags />
           <link rel="icon" href="/favicon.ico" />
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
           <Script
