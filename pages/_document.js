@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
         <Head>
           <meta
             name="description"
-            content="Official website for music artist Mia Madden. Check out her latest single, New Found Stranger, available on all major streaming platforms."
+            content="Official website for music artist lovpune. Check out her latest single, New Found Stranger, available on all major streaming platforms."
           />
           <meta
             name="keywords"
@@ -18,9 +18,9 @@ export default class MyDocument extends Document {
                     euphoria imminenteuphoria sanantonio
                     san antonio artist bandcamp soundcloud
                     cute cutemusic latejuly freshmusic
-                    indieplaylist indie2020 pop2020 2020"
+                    indieplaylist indie2020 pop2020 2020 lovpune"
           />
-          <meta name="author" content="Joel Davis" />
+          <meta name="author" content="Mia Madden" />
           <link rel="icon" href="/favicon.ico" />
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
           <Script
