@@ -1,4 +1,4 @@
-import * as styles from '../styles/styles';
+.import * as styles from '../styles/styles';
 
 function SocialMediaIcon({
   link,
@@ -79,7 +79,7 @@ export default function SocialMedia() {
         style={styles.logo.fb}
       />
       <SocialMediaIcon
-        link="https://www.instagram.com/miamaddenmusic/"
+        link="https://www.instagram.com/lovpune/"
         alt="instagram"
         width="54px"
         height="54px"
