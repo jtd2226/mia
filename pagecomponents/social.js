@@ -1,4 +1,4 @@
-.import * as styles from '../styles/styles';
+import * as styles from '../styles/styles';
 
 function SocialMediaIcon({
   link,
