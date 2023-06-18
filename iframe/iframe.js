@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { useTransition } from '../routes/transition';
 const color = {
-  background: '#8eeeffab',
+  background: '#0c0c0cab',
 };
 
 const Loader = ({ children, style }) => <div style={style}>{children}</div>;
