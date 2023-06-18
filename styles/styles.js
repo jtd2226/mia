@@ -63,9 +63,9 @@ export const contact = {
 
 export const socialContainer = {
   display: 'flex',
-  width: dimensions.width,
+  // width: dimensions.width,
+  minWidth: '50vw',
   boxSizing: 'border-box',
-  maxWidth: '100vw',
   flexWrap: 'wrap',
   zIndex: zIndex.top,
   justifyContent: 'space-around',
@@ -96,7 +96,6 @@ export const navbar = {
   transition: 'background-color 0.5s',
   position: 'sticky',
   animation: animation.fadein,
-  margin: '30px 0',
   top: '0',
 };
 
@@ -114,13 +113,4 @@ export const pageLink = {
   selected: {
     transform: 'scale(1.25)',
   },
-};
-
-export const tabContent = {
-  marginTop: '20px',
-  width: dimensions.width,
-  boxSizing: 'border-box',
-  maxWidth: '100vw',
-  boxSizing: 'border-box',
-  position: 'relative',
 };

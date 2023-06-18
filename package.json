@@ -18,7 +18,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "swr": "^0.4.2",
-    "three": "^0.125.2"
+    "three": "^0.153.0"
   },
   "devDependencies": {
     "glslify-loader": "^2.0.0",

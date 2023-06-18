@@ -1,11 +1,15 @@
-import { EmbeddedAlbum, Iframe } from '../iframe/iframe';
+import { EmbeddedAlbum } from '../iframe/iframe';
 
 export default function Home() {
   return (
     <>
       <EmbeddedAlbum
-        url="https://open.spotify.com/embed/album/5uJ4OU7mD7pZPBCO8vPbKA"
+        url="https://open.spotify.com/embed/album/5iqD2ZXFfZG8XLZpiEqyon"
         height="152px"
+      />
+      <EmbeddedAlbum
+        url="https://open.spotify.com/embed/album/5uJ4OU7mD7pZPBCO8vPbKA"
+        height="352px"
       />
       <EmbeddedAlbum
         url="https://open.spotify.com/embed/track/5c3PclxMVh8UjoyrmDplII"

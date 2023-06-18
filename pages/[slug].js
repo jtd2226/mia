@@ -1,10 +1,11 @@
-import dynamic from 'next/dynamic';
 import Router from '../routes/router';
+import World from 'GL/scene';
 
 const Backgrounds = {
-  defaultImage: '/img/MAMA/background.jpeg',
+  defaultImage: '/img/MAMA/litmama.jpeg',
   main: {
-    component: dynamic(() => import('../GL/scene')),
+    // component: ({ children }) => children,
+    component: World,
   },
 };
 
@@ -38,6 +39,10 @@ export default function SlugPage(props) {
   const Background = background.component || Backgrounds.main.component;
   return (
     <Background
+      className="bg-scene"
+      amplitude={-2}
+      // fullscreen
+      // glitch
       images={background.images || background.image || Backgrounds.defaultImage}
     >
       <Router {...props} />

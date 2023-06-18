@@ -1983,7 +1983,7 @@ __metadata:
     react: 17.0.1
     react-dom: 17.0.1
     swr: ^0.4.2
-    three: ^0.125.2
+    three: ^0.153.0
   languageName: unknown
   linkType: soft
 
@@ -2674,10 +2674,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"three@npm:^0.125.2":
-  version: 0.125.2
-  resolution: "three@npm:0.125.2"
-  checksum: db032cdf29c24c2ba01b48f19e08a1e8ee2f5db06d02a3c7c5bf2c7989d6a80de2258438b72a1a41fd5b24d6dd8f98a585acd22a021bcf6763e585d97c189d54
+"three@npm:^0.153.0":
+  version: 0.153.0
+  resolution: "three@npm:0.153.0"
+  checksum: 68899ca90e048967a83866a1d54a9d28bba3532d228ede9e4c2a3b9bec347c31d8bb633eeaf7828397d2419cded8f57cf32f2a9c037a3587d45122e793ddc0c4
   languageName: node
   linkType: hard
 

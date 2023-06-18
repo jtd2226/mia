@@ -1,6 +1,7 @@
 #define PI 3.14159265359
 
 uniform float time;
+uniform float amplitude;
 uniform vec2 resolution;
 uniform vec2 mouse;
 uniform sampler2D tDiffuse;
@@ -22,7 +23,7 @@ float fbm ( in vec2 _st, float t) {
     for (int i = 0; i < nOctaves; ++i) {
         v += a * noise(_st);
         _st = (3.0 * _st * rotate + shift);
-        a *= 0.5;
+        a *= 0.5 + amplitude;
     }
     return v;
 }
