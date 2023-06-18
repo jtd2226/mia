@@ -96,7 +96,7 @@ export default function Home({ children }) {
         /> */}
         <World
           images="/text/acid_lovpune.png"
-          amplitude={0}
+          amplitude={-1}
           rgbshift={0}
           style={{ width: '100%', height: '100%' }}
         />
