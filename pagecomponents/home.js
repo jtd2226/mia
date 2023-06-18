@@ -22,6 +22,8 @@ export default function Home() {
       </Link> */}
       <a
         href="https://open.spotify.com/album/5iqD2ZXFfZG8XLZpiEqyon"
+        target="_blank"
+        rel="noreferrer"
         className="album-link"
       >
         <span className="album">
