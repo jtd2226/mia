@@ -54,11 +54,11 @@ export default function SocialMedia() {
   return (
     <div style={styles.socialContainer}>
       <SocialMediaIcon
-        link="https://miamaddenmusic.bandcamp.com"
-        alt="band camp"
-        logo="/img/social/Bandcamp_Icon.png"
-        width="54px"
-        height="54px"
+        link="mailto:miamaddenmgmt@gmail.com"
+        alt="email"
+        logo="/img/social/mail.png"
+        width="58px"
+        height="58px"
       />
       <SocialMediaIcon
         link="https://music.apple.com/us/artist/mia-madden/id1527337487"
