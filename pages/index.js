@@ -33,7 +33,7 @@ function Tab({ route }) {
 // };
 
 export default function Home({ children }) {
-  const title = useRef();
+  // const title = useRef();
 
   // function animateTitle(elapsed) {
   //   const element = title.current;
@@ -84,7 +84,7 @@ export default function Home({ children }) {
           <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
-      <span className="main-title" ref={title}>
+      <Link route="home" className="main-title">
         {/* <img
           src="/text/acid_lovpune.png"
           style={{ width: '100%', height: '100%' }}
@@ -94,7 +94,7 @@ export default function Home({ children }) {
           amplitude={-1}
           style={{ width: '100%', height: '100%' }}
         />
-      </span>
+      </Link>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <span className="social-offset">
         <SocialMedia />

@@ -89,9 +89,9 @@ Router.keys = keys;
 export function Link({ route, children, ...rest }) {
   const { push } = Router.use();
   return (
-    <div onClick={() => push(route)} {...rest}>
+    <span onClick={() => push(route)} {...rest}>
       {children}
-    </div>
+    </span>
   );
 }
 
