@@ -32,7 +32,7 @@ function Tab({ route }) {
 //   },
 // };
 
-export default function Home({ children }) {
+export default function Home({ children, page }) {
   // const title = useRef();
 
   // function animateTitle(elapsed) {
@@ -84,10 +84,14 @@ export default function Home({ children }) {
           <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
-      <a
-        href="https://open.spotify.com/album/5iqD2ZXFfZG8XLZpiEqyon"
-        target="_blank"
-        rel="noreferrer"
+
+      <Link
+        route={
+          page === 'home'
+            ? 'https://open.spotify.com/album/5iqD2ZXFfZG8XLZpiEqyon'
+            : 'home'
+        }
+        background={page === 'home'}
         className="main-title"
       >
         {/* <img
@@ -101,7 +105,7 @@ export default function Home({ children }) {
           // fallback="/text/acid_lovpune_transparent.png"
           style={{ width: '100%', height: '100%' }}
         />
-      </a>
+      </Link>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <span className="social-offset">
         <SocialMedia />

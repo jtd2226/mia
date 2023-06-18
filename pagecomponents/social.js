@@ -87,7 +87,7 @@ export default function SocialMedia() {
         logo="/img/social/IG_Logo.png"
       />
       <SocialMediaIcon
-        link="https://open.spotify.com/artist/77k8Ock8xJ8UVCMGR7bVup?nd=1"
+        link="https://open.spotify.com/artist/1UfH3Uz76j5fJ9NcrFGBWm"
         alt="spotify"
         logo="/img/social/Spotify_Icon.png"
         background="#191414"

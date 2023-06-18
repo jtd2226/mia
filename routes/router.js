@@ -76,8 +76,8 @@ const Router = props => {
         },
       }}
     >
-      <Home>
-        <Component {...props} />
+      <Home page={page}>
+        <Component {...props} page={page} />
       </Home>
     </RouterContext.Provider>
   );
@@ -86,12 +86,30 @@ Router.use = () => useContext(RouterContext);
 Router.routes = routes;
 Router.keys = keys;
 
-export function Link({ route, children, ...rest }) {
+export function Link(props) {
   const { push } = Router.use();
+  const { route, background, children, ...rest } = props;
+  const external = background || route.startsWith('http');
+  const target = background ? '_blank' : undefined;
+  const rel = background ? 'noreferrer' : undefined;
   return (
-    <span onClick={() => push(route)} {...rest}>
+    <a
+      href={route}
+      onClick={e => {
+        if (external) return;
+        e.preventDefault();
+        if (e.metaKey) {
+          window.open(route, '_blank');
+        } else {
+          push(route);
+        }
+      }}
+      target={target}
+      rel={rel}
+      {...rest}
+    >
       {children}
-    </span>
+    </a>
   );
 }
 
