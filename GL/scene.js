@@ -272,11 +272,12 @@ export default function World({
       <img
         src={[].concat(images).at(0)}
         ref={fallback}
+        className={rest?.className ?? ''}
         style={{
           position: 'absolute',
           top: 0,
-          width: rest?.style?.width ?? '100%',
-          height: rest?.style?.height ?? '100%',
+          width: rest?.style?.width ?? '',
+          height: rest?.style?.height ?? '',
         }}
       />
       <canvas ref={canvas} {...rest}></canvas>
