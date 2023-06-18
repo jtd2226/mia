@@ -67,19 +67,19 @@ export default function SocialMedia() {
         style={{ borderRadius: '50%' }}
       />
       <SocialMediaIcon
-        link="https://www.tiktok.com/@miamaddenmusic"
+        link="https://www.tiktok.com/@lovpune"
         alt="tiktok"
         logo="/img/social/TikTok_Logo.svg"
         style={styles.logo.tiktok}
       />
       <SocialMediaIcon
-        link="https://www.facebook.com/miamaddenmusic/"
+        link="https://www.facebook.com/lovpunemusic"
         alt="facebook"
         logo="/img/social/FB_Logo.png"
         style={styles.logo.fb}
       />
       <SocialMediaIcon
-        link="https://www.instagram.com/miamaddenmusic/"
+        link="https://www.instagram.com/lovpune/"
         alt="instagram"
         width="54px"
         height="54px"
@@ -92,7 +92,7 @@ export default function SocialMedia() {
         background="#191414"
       />
       <SocialMediaIcon
-        link="https://www.youtube.com/user/aimiama2008/videos"
+        link="https://www.youtube.com/@lovpune"
         alt="youtube"
         logo="/img/social/Youtube_Logo.png"
         style={styles.logo.yt}
