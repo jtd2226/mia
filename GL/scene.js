@@ -2,6 +2,8 @@ import * as THREE from 'three';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer';
 import { GlitchPass } from 'three/addons/postprocessing/GlitchPass';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass';
+import { ShaderPass } from 'three/addons/postprocessing/ShaderPass';
+import { RGBShiftShader } from 'three/addons/shaders/RGBShiftShader';
 import vertexShader from './vertex.glsl';
 import fragmentShader from './fragment.glsl';
 import { useEffect, useRef } from 'react';
@@ -47,7 +49,15 @@ const planeHeight = 2 * Math.tan(vFov / 2) * cameraDistance;
 const timeMultiplier = 0.2;
 
 class Scene {
-  constructor({ canvas, images, fullscreen, amplitude, fallback, glitch }) {
+  constructor({
+    canvas,
+    images,
+    fullscreen,
+    amplitude,
+    fallback,
+    glitch,
+    rgbshift,
+  }) {
     this.images = [].concat(images);
     this.container = canvas;
     this.fullscreen = fullscreen;
@@ -82,6 +92,16 @@ class Scene {
     this.composer.addPass(new RenderPass(this.mainScene, this.camera));
 
     if (glitch) this.composer.addPass(this.glitchEffect);
+
+    if (rgbshift) {
+      const shader = new ShaderPass(RGBShiftShader);
+      const rgbAmount = 0.002 + rgbshift * 0.001;
+      const angle = 3.5;
+      shader.uniforms.amount.value = rgbAmount;
+      shader.uniforms.angle.value = angle;
+      shader.enabled = true;
+      this.composer.addPass(shader);
+    }
 
     this.clock = new THREE.Clock();
     this.loadBGImage(this.images[0]);
@@ -248,6 +268,7 @@ export default function World({
   fullscreen,
   amplitude,
   glitch,
+  rgbshift,
   ...rest
 }) {
   const canvas = useRef();
@@ -259,6 +280,7 @@ export default function World({
       canvas: canvas.current,
       fallback: fallback.current,
       amplitude,
+      rgbshift,
       images,
       fullscreen,
       glitch,

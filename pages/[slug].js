@@ -41,6 +41,7 @@ export default function SlugPage(props) {
     <Background
       className="bg-scene"
       amplitude={-2}
+      // rgbshift={5}
       // fullscreen
       // glitch
       images={background.images || background.image || Backgrounds.defaultImage}
