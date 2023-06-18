@@ -1,4 +1,5 @@
 import World from 'GL/scene';
+import Image from 'next/image';
 // import { Link } from '../routes/router';
 
 const Container = ({ children }) => (
@@ -33,7 +34,7 @@ export default function Home() {
             glitch
             style={{ width: '275px', height: '275px' }}
           />
-          <img src="/text/albumtext.png" style={{ width: '350px' }} />
+          <Image src="/text/albumtext.png" width={350} height={67} />
         </span>
       </a>
     </Container>

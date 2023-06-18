@@ -98,7 +98,7 @@ export default function Home({ children }) {
           images="/text/acid_lovpune.png"
           amplitude={-0.5}
           rgbshift={0}
-          fallback="/text/acid_lovpune_transparent.png"
+          // fallback="/text/acid_lovpune_transparent.png"
           style={{ width: '100%', height: '100%' }}
         />
       </a>
