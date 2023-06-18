@@ -4,6 +4,8 @@ import SocialMedia from '../pagecomponents/social';
 import Router, { Link } from '../routes/router';
 import PageTransition from '../routes/transition';
 import { HomePageData, SiteMetaData } from 'metadata';
+import World from 'GL/scene';
+import { useEffect, useRef } from 'react';
 
 function Tab({ route }) {
   const { page } = Router.use();
@@ -20,7 +22,42 @@ function Tab({ route }) {
   );
 }
 
+const titleAnimation = {
+  y: -300,
+  speed: 0.02,
+  get transform() {
+    const y = titleAnimation.y;
+    if (!y) return '';
+    return `translateY(${y}px)`;
+  },
+};
+
 export default function Home({ children }) {
+  const title = useRef();
+
+  // function animateTitle(elapsed) {
+  //   const element = title.current;
+  //   if (!element) return requestAnimationFrame(animateTitle);
+  //   titleAnimation.last ??= elapsed;
+  //   const delta = (elapsed - titleAnimation.last) * titleAnimation.speed;
+  //   if (!delta) return requestAnimationFrame(animateTitle);
+
+  //   titleAnimation.y = Math.min(titleAnimation.y + delta, 0);
+  //   element.style.transform = titleAnimation.transform;
+
+  //   if (!titleAnimation.y) return;
+
+  //   requestAnimationFrame(animateTitle);
+  // }
+
+  // useEffect(() => {
+  //   if (!title.current) return;
+  //   const id = requestAnimationFrame(animateTitle);
+  //   return () => {
+  //     cancelAnimationFrame(id);
+  //   };
+  // }, [title]);
+
   return (
     <main>
       <Head>
@@ -47,18 +84,39 @@ export default function Home({ children }) {
           <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
-      <Link route="home">
-        <h1 style={styles.MIA}>{HomePageData.title}</h1>
-      </Link>
+      <span
+        className="main-title"
+        style={{
+          display: 'block',
+          width: '800px',
+          height: '180px',
+          maxWidth: '100vw',
+          marginTop: '20px',
+          marginBottom: '30px',
+          cursor: 'pointer',
+          position: 'relative',
+          // transform: titleAnimation.transform,
+          zIndex: 1,
+        }}
+        ref={title}
+      >
+        <World
+          images="/text/acid_lovpune.png"
+          amplitude={-1}
+          style={{ width: '100%', height: '100%', background: 'transparent' }}
+        />
+      </span>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
-      <SocialMedia />
+      <span style={styles.socialOffset}>
+        <SocialMedia />
+      </span>
       <div style={styles.navbar}>
-        <Tab route="music" />
-        <Tab route="media" />
-        <Tab route="about" />
-        <PageTransition>
-          <div style={styles.tabContent}>{children}</div>
-        </PageTransition>
+        {/* <Tab route="music" /> */}
+        {/* <Tab route="media" /> */}
+        {/* <Tab route="about" /> */}
+        {/* <PageTransition> */}
+        <div style={styles.tabContent}>{children}</div>
+        {/* </PageTransition> */}
       </div>
     </main>
   );

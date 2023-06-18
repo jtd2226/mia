@@ -63,12 +63,25 @@ export const contact = {
 
 export const socialContainer = {
   display: 'flex',
+  // width: dimensions.width,
+  minWidth: '50vw',
+  boxSizing: 'border-box',
+  flexWrap: 'wrap',
+  zIndex: zIndex.top,
+  justifyContent: 'space-around',
+  animation: animation.fadein,
+};
+
+export const socialOffset = {
+  display: 'flex',
   width: dimensions.width,
+  marginRight: '30px',
+  // width: '100vw',
   boxSizing: 'border-box',
   maxWidth: '100vw',
   flexWrap: 'wrap',
   zIndex: zIndex.top,
-  justifyContent: 'space-around',
+  justifyContent: 'flex-end',
   animation: animation.fadein,
 };
 
@@ -96,7 +109,6 @@ export const navbar = {
   transition: 'background-color 0.5s',
   position: 'sticky',
   animation: animation.fadein,
-  margin: '30px 0',
   top: '0',
 };
 
@@ -117,8 +129,9 @@ export const pageLink = {
 };
 
 export const tabContent = {
-  marginTop: '20px',
-  width: dimensions.width,
+  marginTop: '30px',
+  marginRight: '12px',
+  width: '600px',
   boxSizing: 'border-box',
   maxWidth: '100vw',
   boxSizing: 'border-box',

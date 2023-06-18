@@ -1,13 +1,13 @@
-import { Link } from '../routes/router';
+import World from 'GL/scene';
+// import { Link } from '../routes/router';
 
 const Container = ({ children }) => (
   <div
     style={{
       display: 'flex',
       flexDirection: 'column',
-      justifycontent: 'center',
+      justifyContent: 'center',
       textAlign: 'center',
-      marginTop: '15vh',
     }}
   >
     {children}
@@ -21,16 +21,24 @@ export default function Home() {
         <a>Click to Pre-Save</a>
       </Link> */}
       <a
-        href="mailto:miamaddenmgmt@gmail.com"
+        href="https://open.spotify.com/album/5iqD2ZXFfZG8XLZpiEqyon"
         style={{
-          display: 'block',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'flex-end',
           textAlign: 'center',
+          position: 'relative',
+          gap: '12px',
         }}
       >
-        <img
-          src="/img/contact-button.png"
-          style={{ width: '200px', borderRadius: '8px' }}
+        <World
+          images="/img/MAMA/albumlast_time.jpg"
+          amplitude={2}
+          glitch
+          style={{ width: '250px', height: '250px', marginRight: '40px' }}
         />
+        <img src="/text/albumtext.png" style={{ width: '350px' }} />
       </a>
     </Container>
   );

@@ -1,4 +1,7 @@
 import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer';
+import { GlitchPass } from 'three/addons/postprocessing/GlitchPass';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass';
 import vertexShader from './vertex.glsl';
 import fragmentShader from './fragment.glsl';
 import { useEffect, useRef } from 'react';
@@ -44,20 +47,28 @@ const planeHeight = 2 * Math.tan(vFov / 2) * cameraDistance;
 const timeMultiplier = 0.2;
 
 class Scene {
-  constructor(canvas, images) {
+  constructor({ canvas, images, fullscreen, amplitude, fallback, glitch }) {
     this.images = [].concat(images);
     this.container = canvas;
+    this.fullscreen = fullscreen;
+    this.fallback = fallback;
 
-    this.W = window.innerWidth;
-    this.H = window.outerHeight;
+    this.initialSize = {
+      width: canvas.style.width ?? '100%',
+      height: canvas.style.height ?? '100%',
+    };
 
-    this.start();
-    this.bindEvent();
-  }
+    amplitude ??= 0.0;
+    this.amplitude = amplitude * 0.1;
 
-  start = () => {
+    const { width, height } = this.getHeightWidth();
+
+    this.W = width;
+    this.H = height;
+
     this.mainScene = new THREE.Scene();
-    this.mainScene.background = new THREE.Color(0x000);
+    this.mainScene.background = new THREE.Color(0x0c0c0c);
+
     this.initCamera();
     this.initLights();
 
@@ -66,9 +77,31 @@ class Scene {
     });
     this.renderer.setSize(this.W, this.H);
     this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.composer = new EffectComposer(this.renderer);
+    this.glitchEffect = new GlitchPass();
+    this.composer.addPass(new RenderPass(this.mainScene, this.camera));
+
+    if (glitch) this.composer.addPass(this.glitchEffect);
 
     this.clock = new THREE.Clock();
     this.loadBGImage(this.images[0]);
+  }
+
+  getHeightWidth = () => {
+    if (this.fullscreen) {
+      return {
+        width: window.innerWidth,
+        height: Math.max(window.outerHeight, window.innerHeight),
+      };
+    } else {
+      this.container.style.width = this.initialSize.width;
+      this.container.style.height = this.initialSize.height;
+      const bounds = this.container.getBoundingClientRect();
+      return {
+        width: bounds.width,
+        height: bounds.height,
+      };
+    }
   };
 
   initCamera() {
@@ -94,9 +127,8 @@ class Scene {
     // this.mainScene.add(ambientlight);
   }
 
-  onResize = debounce(() => {
-    const w = window.innerWidth;
-    const h = Math.max(window.outerHeight, window.innerHeight);
+  handleResize = () => {
+    const { width: w, height: h } = this.getHeightWidth();
     if (this.W === w && this.H === h) return;
 
     this.W = w;
@@ -111,36 +143,7 @@ class Scene {
 
     this.planeWidth = planeHeight * aspect;
 
-    this.uniforms.tDiffuse.value.dispose();
-    this.cube.geometry.dispose();
-    this.cube.material.dispose();
-
-    this.planeGeometry.dispose();
-    this.planeGeometry = new THREE.PlaneBufferGeometry(
-      this.planeWidth,
-      planeHeight
-    );
-
-    this.cube.geometry = this.planeGeometry;
-  }, 500);
-
-  bindEvent = () => {
-    window.addEventListener('resize', () => {
-      const w = window.innerWidth;
-      const h = Math.max(window.outerHeight, window.innerHeight);
-      const thresh = 200;
-      const shouldAnimate =
-        Math.abs(this.W - w) > thresh || Math.abs(this.H - h) > thresh;
-
-      if (shouldAnimate) {
-        this.container.style.opacity = 0;
-        cancelAnimationFrame(this.animationId);
-      }
-      this.renderer.dispose();
-      this.onResize(w, h).then(() => {
-        if (shouldAnimate) fade(this.container).then(this.update);
-      });
-    });
+    this.cube.scale.x = this.planeWidth;
     // window.onclick = this.togglePlayer;
     // window.ontouchstart = this.togglePlayer;
   };
@@ -173,12 +176,10 @@ class Scene {
         amount: { value: 1.0 },
         freq: { value: 0.0 },
         freq2: { value: 0.0 },
+        amplitude: { value: this.amplitude },
       };
 
-      this.planeGeometry = new THREE.PlaneBufferGeometry(
-        this.planeWidth,
-        planeHeight
-      );
+      this.planeGeometry = new THREE.PlaneGeometry(1, 1);
 
       var cmaterial = new THREE.ShaderMaterial({
         uniforms: this.uniforms,
@@ -188,17 +189,21 @@ class Scene {
         side: THREE.FrontSide,
       });
       this.cube = new THREE.Mesh(this.planeGeometry, cmaterial);
+      this.cube.scale.x = this.planeWidth;
+      this.cube.scale.y = planeHeight;
       this.mainScene.add(this.cube);
       this.update();
     });
   }
 
   update = () => {
+    this.fallback.style.display = 'none';
     this.animationId = requestAnimationFrame(this.update);
     const delta = this.clock.getDelta();
     this.uniforms.time.value += delta * timeMultiplier;
     this.updateWithMusic();
-    this.renderer.render(this.mainScene, this.camera);
+    this.composer.render();
+    this.handleResize();
   };
 
   makeSlideshow() {
@@ -237,17 +242,44 @@ class Scene {
   };
 }
 
-export default function World({ children, images }) {
+export default function World({
+  children,
+  images,
+  fullscreen,
+  amplitude,
+  glitch,
+  ...rest
+}) {
   const canvas = useRef();
+  const fallback = useRef();
   useEffect(() => {
-    const scene = new Scene(canvas.current, images);
+    canvas.current ??= document.getElementById('scene');
+    if (!canvas.current) return;
+    const scene = new Scene({
+      canvas: canvas.current,
+      fallback: fallback.current,
+      amplitude,
+      images,
+      fullscreen,
+      glitch,
+    });
     return () => {
       scene.dispose();
     };
   }, []);
   return (
     <>
-      <canvas id="scene" ref={canvas} />
+      <img
+        src={[].concat(images).at(0)}
+        ref={fallback}
+        style={{
+          position: 'absolute',
+          top: 0,
+          width: rest?.style?.width ?? '100%',
+          height: rest?.style?.height ?? '100%',
+        }}
+      />
+      <canvas ref={canvas} {...rest}></canvas>
       {children}
     </>
   );

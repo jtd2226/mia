@@ -1,14 +1,14 @@
 html,
 body {
   font-family: -apple-system, sans-serif;
+  background-color: #0c0c0c;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   width: 100vw;
+  min-height: 100vh;
   margin: 0;
   overflow: hidden auto;
 }
@@ -17,27 +17,22 @@ a {
   text-decoration: none;
 }
 
-body:before {
-  content: '';
-  display: block;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -10;
-  background: url('/img/MAMA/background.jpeg') no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+.bg-scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+/* .main-title {
+  animation: fade 1s linear forwards;
+} */
 
 @font-face {
   font-family: 'Cute';
@@ -49,11 +44,14 @@ main {
   src: url('../public/fonts/Agresiva.ttf');
 }
 
-#scene {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  z-index: -1;
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
 }

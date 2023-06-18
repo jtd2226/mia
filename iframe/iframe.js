@@ -32,7 +32,7 @@ export function Iframe({ url, children, style, height }) {
       <iframe
         ref={frame}
         src={url}
-        allow="autoplay *; fullscreen; encrypted-media *; fullscreen *; gyroscope; accelerometer; picture-in-picture"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         style={{
           ...style,
           display: isLoading ? 'none' : style.display || 'block',
