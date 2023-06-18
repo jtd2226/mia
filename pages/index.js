@@ -84,7 +84,12 @@ export default function Home({ children }) {
           <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
-      <Link route="home" className="main-title">
+      <a
+        href="https://open.spotify.com/album/5iqD2ZXFfZG8XLZpiEqyon"
+        target="_blank"
+        rel="noreferrer"
+        className="main-title"
+      >
         {/* <img
           src="/text/acid_lovpune.png"
           style={{ width: '100%', height: '100%' }}
@@ -95,7 +100,7 @@ export default function Home({ children }) {
           rgbshift={0}
           style={{ width: '100%', height: '100%' }}
         />
-      </Link>
+      </a>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
       <span className="social-offset">
         <SocialMedia />
