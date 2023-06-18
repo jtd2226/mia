@@ -21,7 +21,7 @@ function debounce(fn, wait = 400) {
   };
 }
 
-const fade = (element, out = false, duration = 300) =>
+const fade = (element, out = false, duration = 700) =>
   new Promise(resolve => {
     element.style.opacity = 0;
     let start;
@@ -212,12 +212,13 @@ class Scene {
       this.cube.scale.x = this.planeWidth;
       this.cube.scale.y = planeHeight;
       this.mainScene.add(this.cube);
+      fade(this.container);
       this.update();
     });
   }
 
   update = () => {
-    this.fallback.style.display = 'none';
+    if (this.fallback) this.fallback.style.display = 'none';
     this.animationId = requestAnimationFrame(this.update);
     const delta = this.clock.getDelta();
     this.uniforms.time.value += delta * timeMultiplier;
@@ -269,16 +270,17 @@ export default function World({
   amplitude,
   glitch,
   rgbshift,
+  fallback,
   ...rest
 }) {
   const canvas = useRef();
-  const fallback = useRef();
+  const fallbackImg = useRef();
   useEffect(() => {
     canvas.current ??= document.getElementById('scene');
     if (!canvas.current) return;
     const scene = new Scene({
       canvas: canvas.current,
-      fallback: fallback.current,
+      fallback: fallbackImg.current,
       amplitude,
       rgbshift,
       images,
@@ -291,17 +293,21 @@ export default function World({
   }, []);
   return (
     <>
-      <img
-        src={[].concat(images).at(0)}
-        ref={fallback}
-        className={rest?.className ?? ''}
-        style={{
-          position: 'absolute',
-          top: 0,
-          width: rest?.style?.width ?? '',
-          height: rest?.style?.height ?? '',
-        }}
-      />
+      {fallback && (
+        <img
+          src={
+            typeof fallback === 'string' ? fallback : [].concat(images).at(0)
+          }
+          ref={fallbackImg}
+          className={rest?.className ?? ''}
+          style={{
+            position: 'absolute',
+            top: 0,
+            width: rest?.style?.width ?? '',
+            height: rest?.style?.height ?? '',
+          }}
+        />
+      )}
       <canvas ref={canvas} {...rest}></canvas>
       {children}
     </>

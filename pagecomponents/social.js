@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import * as styles from '../styles/styles';
 
 function SocialMediaIcon({
@@ -24,7 +25,7 @@ function SocialMediaIcon({
         alignItems: 'center',
       }}
     >
-      <img
+      <Image
         alt={alt}
         width={width ?? '50px'}
         height={height ?? '50px'}
