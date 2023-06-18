@@ -88,8 +88,8 @@ export default function Home({ children }) {
         className="main-title"
         style={{
           display: 'block',
-          width: '800px',
-          height: '180px',
+          width: '700px',
+          height: '160px',
           maxWidth: '100vw',
           marginTop: '20px',
           marginBottom: '30px',
@@ -100,10 +100,14 @@ export default function Home({ children }) {
         }}
         ref={title}
       >
+        {/* <img
+          src="/text/acid_lovpune.png"
+          style={{ width: '100%', height: '100%' }}
+        /> */}
         <World
           images="/text/acid_lovpune.png"
           amplitude={-1}
-          style={{ width: '100%', height: '100%', background: 'transparent' }}
+          style={{ width: '100%', height: '100%' }}
         />
       </span>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}

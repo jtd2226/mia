@@ -44,7 +44,12 @@ export default function SlugPage(props) {
       // fullscreen
       // glitch
       images={background.images || background.image || Backgrounds.defaultImage}
-      style={{ width: '50vw', height: '100vh' }}
+      style={{
+        width: '50vw',
+        height: '100vh',
+        minWidth: '400px',
+        maxWidth: '100vw',
+      }}
     >
       <Router {...props} />
     </Background>

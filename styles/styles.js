@@ -130,7 +130,7 @@ export const pageLink = {
 
 export const tabContent = {
   marginTop: '30px',
-  marginRight: '12px',
+  marginRight: '16px',
   width: '600px',
   boxSizing: 'border-box',
   maxWidth: '100vw',
