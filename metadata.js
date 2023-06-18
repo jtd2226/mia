@@ -3,7 +3,8 @@ export const SiteMetaData = {
   description: 'Official website for music artist lovpune',
   author: 'Mia Madden',
   url: 'https://www.lovpune.com',
-  image: 'http://meta.preview.lovpune.com',
+  image:
+    'https://firebasestorage.googleapis.com/v0/b/mia-madden-music.appspot.com/o/preview.png?alt=media',
 };
 
 export const HomePageData = {
