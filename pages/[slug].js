@@ -40,16 +40,10 @@ export default function SlugPage(props) {
   return (
     <Background
       className="bg-scene"
-      amplitude={0}
+      amplitude={-2}
       // fullscreen
       // glitch
       images={background.images || background.image || Backgrounds.defaultImage}
-      style={{
-        width: '50vw',
-        height: '100vh',
-        minWidth: '400px',
-        maxWidth: '100vw',
-      }}
     >
       <Router {...props} />
     </Background>

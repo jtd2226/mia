@@ -22,15 +22,15 @@ function Tab({ route }) {
   );
 }
 
-const titleAnimation = {
-  y: -300,
-  speed: 0.02,
-  get transform() {
-    const y = titleAnimation.y;
-    if (!y) return '';
-    return `translateY(${y}px)`;
-  },
-};
+// const titleAnimation = {
+//   y: -300,
+//   speed: 0.02,
+//   get transform() {
+//     const y = titleAnimation.y;
+//     if (!y) return '';
+//     return `translateY(${y}px)`;
+//   },
+// };
 
 export default function Home({ children }) {
   const title = useRef();
@@ -84,22 +84,7 @@ export default function Home({ children }) {
           <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
         </svg>
       </div> */}
-      <span
-        className="main-title"
-        style={{
-          display: 'block',
-          width: '700px',
-          height: '160px',
-          maxWidth: '100vw',
-          marginTop: '20px',
-          marginBottom: '30px',
-          cursor: 'pointer',
-          position: 'relative',
-          // transform: titleAnimation.transform,
-          zIndex: 1,
-        }}
-        ref={title}
-      >
+      <span className="main-title" ref={title}>
         {/* <img
           src="/text/acid_lovpune.png"
           style={{ width: '100%', height: '100%' }}
@@ -111,7 +96,7 @@ export default function Home({ children }) {
         />
       </span>
       {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
-      <span style={styles.socialOffset}>
+      <span className="social-offset">
         <SocialMedia />
       </span>
       <div style={styles.navbar}>
@@ -119,7 +104,7 @@ export default function Home({ children }) {
         {/* <Tab route="media" /> */}
         {/* <Tab route="about" /> */}
         {/* <PageTransition> */}
-        <div style={styles.tabContent}>{children}</div>
+        <div className="tab-content">{children}</div>
         {/* </PageTransition> */}
       </div>
     </main>

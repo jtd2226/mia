@@ -72,19 +72,6 @@ export const socialContainer = {
   animation: animation.fadein,
 };
 
-export const socialOffset = {
-  display: 'flex',
-  width: dimensions.width,
-  marginRight: '30px',
-  // width: '100vw',
-  boxSizing: 'border-box',
-  maxWidth: '100vw',
-  flexWrap: 'wrap',
-  zIndex: zIndex.top,
-  justifyContent: 'flex-end',
-  animation: animation.fadein,
-};
-
 export const logo = {
   fb: {
     backgroundColor: '#1877f2',
@@ -126,14 +113,4 @@ export const pageLink = {
   selected: {
     transform: 'scale(1.25)',
   },
-};
-
-export const tabContent = {
-  marginTop: '30px',
-  marginRight: '16px',
-  width: '600px',
-  boxSizing: 'border-box',
-  maxWidth: '100vw',
-  boxSizing: 'border-box',
-  position: 'relative',
 };
