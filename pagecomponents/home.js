@@ -29,14 +29,14 @@ export default function Home() {
           alignItems: 'flex-end',
           textAlign: 'center',
           position: 'relative',
-          gap: '12px',
+          gap: '20px',
         }}
       >
         <World
           images="/img/MAMA/albumlast_time.jpg"
-          amplitude={2}
+          amplitude={-5}
           glitch
-          style={{ width: '250px', height: '250px', marginRight: '40px' }}
+          style={{ width: '275px', height: '275px', marginRight: '30px' }}
         />
         <img src="/text/albumtext.png" style={{ width: '350px' }} />
       </a>
