@@ -1,10 +1,20 @@
+export const SiteMetaData = {
+  title: 'lovpune music',
+  description: 'Official website for music artist lovpune',
+  author: 'Mia Madden',
+  url: 'https://www.lovpune.com',
+  image: 'https://meta.preview.lovpune.com',
+};
+
+export const HomePageData = {
+  // title: 'Mia Madden',
+  title: 'lovpune',
+};
+
 export function MetaTags() {
   return (
     <>
-      <meta
-        name="description"
-        content="Official website for music artist lovpune"
-      />
+      <meta name="description" content={SiteMetaData.description} />
       <meta
         name="keywords"
         content="music mia madden funk psych jazz pop girl 
@@ -16,16 +26,21 @@ export function MetaTags() {
             cute cutemusic latejuly freshmusic
             indieplaylist indie2020 pop2020 2020 lovpune"
       />
-      <meta name="author" content="Mia Madden" />
+      <meta name="author" content={SiteMetaData.author} />
+
+      {/* Facebook */}
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={SiteMetaData.url} />
+      <meta property="og:title" content={SiteMetaData.title} />
+      <meta property="og:description" content={SiteMetaData.description} />
+      <meta property="og:image" content={SiteMetaData.image} />
+
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={SiteMetaData.url} />
+      <meta property="twitter:title" content={SiteMetaData.title} />
+      <meta property="twitter:description" content={SiteMetaData.description} />
+      <meta property="twitter:image" content={SiteMetaData.image} />
     </>
   );
 }
-
-export const SiteMetaData = {
-  title: 'lovpune music',
-};
-
-export const HomePageData = {
-  // title: 'Mia Madden',
-  title: 'lovpune',
-};
