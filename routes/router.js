@@ -97,12 +97,9 @@ export function Link(props) {
       href={route}
       onClick={e => {
         if (external) return;
+        if (e.metaKey) return;
         e.preventDefault();
-        if (e.metaKey) {
-          window.open(route, '_blank');
-        } else {
-          push(route);
-        }
+        push(route);
       }}
       target={target}
       rel={rel}
