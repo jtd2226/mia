@@ -22,6 +22,8 @@ main {
   flex-direction: column;
   align-items: center;
   padding-bottom: 20px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .bg-scene {
@@ -29,7 +31,7 @@ main {
   top: 0;
   left: 0;
   pointer-events: none;
-  width: 50vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -37,7 +39,7 @@ main {
   display: block;
   width: 800px;
   height: 180px;
-  max-width: 100vw;
+  max-width: 100%;
   margin-top: 20px;
   margin-bottom: 30px;
   cursor: pointer;
@@ -45,21 +47,26 @@ main {
   z-index: 20;
 }
 
+.main-title canvas {
+  box-sizing: border-box;
+  padding-left: 4%;
+}
+
 .social-offset {
   display: flex;
   width: 1000px;
   box-sizing: border-box;
-  max-width: 100vw;
+  max-width: 100%;
   flex-wrap: wrap;
   z-index: 20;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .tab-content {
   margin-top: 30px;
   width: 600px;
   box-sizing: border-box;
-  max-width: 100vw;
+  max-width: 100%;
   position: relative;
 }
 
@@ -67,7 +74,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .album {
@@ -78,26 +85,6 @@ main {
   text-align: center;
   position: relative;
   gap: 20px;
-}
-
-@media (max-width: 500px) {
-  .bg-scene {
-    width: 100vw;
-  }
-  .main-title {
-    width: 700px;
-    height: 160px;
-  }
-  .social-offset {
-    width: 100vw;
-    justify-content: center;
-  }
-  .tab-content {
-    width: 100vw;
-  }
-  .album-link {
-    align-items: center;
-  }
 }
 
 @font-face {

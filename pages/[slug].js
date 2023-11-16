@@ -2,7 +2,7 @@ import Router from '../routes/router';
 import World from 'GL/scene';
 
 const Backgrounds = {
-  defaultImage: '/img/MAMA/litmama.jpeg',
+  defaultImage: '/img/MAMA/lovpunemama.png',
   main: {
     // component: ({ children }) => children,
     component: World,
@@ -40,7 +40,7 @@ export default function SlugPage(props) {
   return (
     <Background
       className="bg-scene"
-      amplitude={-2}
+      amplitude={-1}
       // rgbshift={5}
       // fullscreen
       // glitch

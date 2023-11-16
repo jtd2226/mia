@@ -77,14 +77,16 @@ class Scene {
     this.H = height;
 
     this.mainScene = new THREE.Scene();
-    this.mainScene.background = new THREE.Color(0x0c0c0c);
+    this.mainScene.background = null;
 
     this.initCamera();
     this.initLights();
 
     this.renderer = new THREE.WebGLRenderer({
       canvas: this.container,
+      alpha: true,
     });
+    this.renderer.setClearColor(0x000000, 0);
     this.renderer.setSize(this.W, this.H);
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.composer = new EffectComposer(this.renderer);
@@ -207,6 +209,7 @@ class Scene {
         fragmentShader: fragmentShader,
         wireframe: false,
         side: THREE.FrontSide,
+        transparent: true,
       });
       this.cube = new THREE.Mesh(this.planeGeometry, cmaterial);
       this.cube.scale.x = this.planeWidth;
