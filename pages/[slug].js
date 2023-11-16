@@ -40,7 +40,7 @@ export default function SlugPage(props) {
   return (
     <Background
       className="bg-scene"
-      amplitude={-1}
+      amplitude={-2}
       // rgbshift={5}
       // fullscreen
       // glitch
