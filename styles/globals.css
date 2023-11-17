@@ -87,6 +87,44 @@ main {
   gap: 20px;
 }
 
+.album-link button {
+  opacity: 0;
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+}
+
+.album-link:hover button,
+.album-link:focus button,
+.album-link:focus-within button {
+  opacity: 1;
+}
+
+.album-carousel {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.album-carousel svg {
+  width: 30px;
+  height: 30px;
+}
+.album-carousel button:first-of-type svg {
+  transform: rotate(180deg);
+}
+
+button {
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease-in;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
 @font-face {
   font-family: 'Cute';
   src: url('../public/fonts/C800.ttf');

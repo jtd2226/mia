@@ -293,7 +293,7 @@ export default function World({
     return () => {
       scene.dispose();
     };
-  }, []);
+  }, [images]);
   return (
     <>
       {fallback && (
