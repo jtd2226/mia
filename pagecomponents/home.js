@@ -1,6 +1,7 @@
 import World from 'GL/scene';
 import Image from 'next/image';
 import { useCallback, useEffect, useState, useRef } from 'react';
+import { Featured } from 'metadata';
 // import { Link } from '../routes/router';
 
 const images = [
@@ -8,9 +9,10 @@ const images = [
     src: '/img/MAMA/album_neverknew.jpeg',
     href: 'https://open.spotify.com/album/1EpBenE7byXtAUoLWBz1Ud',
   },
+  Featured.album,
   {
-    src: '/img/MAMA/album_allmyfriends.jpeg',
-    href: 'https://open.spotify.com/album/3Yx7zZ43S8fFYqeNN5tqK0',
+    src: '/img/MAMA/album_last_time.jpg',
+    href: 'https://open.spotify.com/track/0wB7ZBKtYtAXPwWrE65jUl',
   },
 ];
 

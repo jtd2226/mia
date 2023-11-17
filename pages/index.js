@@ -3,7 +3,7 @@ import * as styles from '../styles/styles';
 import SocialMedia from '../pagecomponents/social';
 import Router, { Link } from '../routes/router';
 import PageTransition from '../routes/transition';
-import { HomePageData, SiteMetaData } from 'metadata';
+import { Featured, HomePageData, SiteMetaData } from 'metadata';
 import World from 'GL/scene';
 import { useEffect, useRef } from 'react';
 
@@ -86,11 +86,7 @@ export default function Home({ children, page }) {
       </div> */}
 
       <Link
-        route={
-          page === 'home'
-            ? 'https://open.spotify.com/album/5iqD2ZXFfZG8XLZpiEqyon'
-            : 'home'
-        }
+        route={page === 'home' ? Featured.album.href : 'home'}
         background={page === 'home'}
         className="main-title"
       >

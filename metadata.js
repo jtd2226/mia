@@ -7,6 +7,13 @@ export const SiteMetaData = {
     'https://firebasestorage.googleapis.com/v0/b/mia-madden-music.appspot.com/o/preview.png?alt=media',
 };
 
+export const Featured = {
+  album: {
+    src: '/img/MAMA/album_allmyfriends.jpeg',
+    href: 'https://open.spotify.com/album/3Yx7zZ43S8fFYqeNN5tqK0',
+  },
+};
+
 export const HomePageData = {
   // title: 'Mia Madden',
   title: 'lovpune',
