@@ -296,7 +296,7 @@ export default function World({
     return () => {
       scene.dispose();
     };
-  }, [imageURL]);
+  }, [imageURL, amplitude, glitch, fullscreen, rgbshift]);
   return (
     <>
       {fallback && (
