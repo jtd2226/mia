@@ -278,9 +278,12 @@ export default function World({
 }) {
   const canvas = useRef();
   const fallbackImg = useRef();
+  const imageURL = [].concat(images).at(0);
+
   useEffect(() => {
     canvas.current ??= document.getElementById('scene');
     if (!canvas.current) return;
+    if (!imageURL?.length) return;
     const scene = new Scene({
       canvas: canvas.current,
       fallback: fallbackImg.current,
@@ -293,14 +296,12 @@ export default function World({
     return () => {
       scene.dispose();
     };
-  }, [images]);
+  }, [imageURL]);
   return (
     <>
       {fallback && (
         <img
-          src={
-            typeof fallback === 'string' ? fallback : [].concat(images).at(0)
-          }
+          src={typeof fallback === 'string' ? fallback : imageURL}
           ref={fallbackImg}
           className={rest?.className ?? ''}
           style={{
