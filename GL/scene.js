@@ -136,11 +136,11 @@ class Scene {
   }
 
   dispose = () => {
-    this.uniforms.tDiffuse.value.dispose();
-    this.cube.geometry.dispose();
-    this.cube.material.dispose();
-    this.planeGeometry.dispose();
-    this.renderer.dispose();
+    this.uniforms?.tDiffuse?.value?.dispose?.();
+    this.cube?.geometry?.dispose?.();
+    this.cube?.material?.dispose?.();
+    this.planeGeometry?.dispose?.();
+    this.renderer?.dispose?.();
     cancelAnimationFrame(this.animationId);
   };
 
