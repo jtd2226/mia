@@ -12,7 +12,7 @@ export default class MyDocument extends Document {
           {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
           <Script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=UA-166996249-1"
+            src="https://www.googletagmanager.com/gtag/js?id=G-BHRJGXLN8Z"
           ></Script>
           {/* <!-- Google Analytics Code--> */}
           <Script
@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
                     dataLayer.push(arguments);
                 }
                 gtag("js", new Date());
-                gtag("config", "UA-166996249-1");
+                gtag("config", "G-BHRJGXLN8Z");
             `,
             }}
           />
