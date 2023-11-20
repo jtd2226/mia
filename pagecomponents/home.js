@@ -29,6 +29,42 @@ const Container = ({ children }) => (
   </div>
 );
 
+const Timer = {
+  Interval(callback, duration) {
+    const state = {
+      id: null,
+      start: null,
+    };
+
+    function observe(now) {
+      state.start ??= now;
+      const elapsed = now - state.start;
+
+      if (elapsed >= duration) {
+        state.start = now;
+        callback();
+      }
+
+      state.id = requestAnimationFrame(observe);
+    }
+
+    function stop() {
+      delete state.start;
+      cancelAnimationFrame(state.id);
+    }
+
+    function start() {
+      stop();
+      state.id = requestAnimationFrame(observe);
+    }
+
+    return {
+      start,
+      stop,
+    };
+  },
+};
+
 function Carousel({ images }) {
   const [index, setIndex] = useState(0);
   const { src, href, ...rest } = images[index];
@@ -43,10 +79,8 @@ function Carousel({ images }) {
   }, [images]);
 
   const reset = useCallback(() => {
-    clearInterval(interval.current);
-    interval.current = setInterval(() => {
-      next();
-    }, 8000);
+    interval.current ??= Timer.Interval(next, 8000);
+    interval.current.start();
   }, [next]);
 
   const back = useCallback(() => {
@@ -62,7 +96,7 @@ function Carousel({ images }) {
     reset();
 
     return () => {
-      clearInterval(interval.current);
+      interval.current?.stop();
     };
   }, [next]);
 
