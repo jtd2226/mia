@@ -4,7 +4,7 @@ export const SiteMetaData = {
   author: 'Mia Madden',
   url: 'https://www.lovpune.com',
   image:
-    'https://firebasestorage.googleapis.com/v0/b/mia-madden-music.appspot.com/o/preview.png?alt=media',
+    'https://firebasestorage.googleapis.com/v0/b/mia-madden-music.appspot.com/o/preview.PNG?alt=media',
 };
 
 export const Featured = {
