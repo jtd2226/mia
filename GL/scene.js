@@ -278,7 +278,7 @@ export default function World({
 }) {
   const canvas = useRef();
   const fallbackImg = useRef();
-  const imageURL = [].concat(images).at(0);
+  const imageURL = [].concat(images)[0];
 
   useEffect(() => {
     canvas.current ??= document.getElementById('scene');
