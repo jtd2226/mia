@@ -1,20 +1,10 @@
 import World from 'GL/scene';
 import Image from 'next/image';
 import { useCallback, useEffect, useState, useRef } from 'react';
-import { Featured } from 'metadata';
+import { CarouselImages } from 'metadata';
 // import { Link } from '../routes/router';
 
-const images = [
-  {
-    src: '/img/MAMA/album_neverknew.jpeg',
-    href: 'https://open.spotify.com/album/1EpBenE7byXtAUoLWBz1Ud',
-  },
-  Featured.album,
-  {
-    src: '/img/MAMA/album_last_time.jpg',
-    href: 'https://open.spotify.com/track/0wB7ZBKtYtAXPwWrE65jUl',
-  },
-];
+const images = CarouselImages;
 
 const Container = ({ children }) => (
   <div
@@ -67,7 +57,7 @@ const Timer = {
 
 function Carousel({ images }) {
   const [index, setIndex] = useState(0);
-  const { src, href, ...rest } = images[index];
+  const { src, href, presave, ...rest } = images[index];
   const interval = useRef();
 
   const next = useCallback(() => {
@@ -141,7 +131,11 @@ function Carousel({ images }) {
             </svg>
           </button>
         </span>
-        <Image src="/text/albumtext.png" width={350} height={67} />
+        <Image
+          src={presave ? '/text/presavetext.png' : '/text/albumtext.png'}
+          width={350}
+          height={67}
+        />
       </span>
     </a>
   );
