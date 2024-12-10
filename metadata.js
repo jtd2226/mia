@@ -9,8 +9,9 @@ export const SiteMetaData = {
 
 export const Featured = {
   album: {
-    src: '/img/MAMA/album_allmyfriends.jpeg',
-    href: 'https://open.spotify.com/album/3Yx7zZ43S8fFYqeNN5tqK0',
+    src: '/img/MAMA/album_tunnel_vision.avif',
+    href: 'https://unitedmasters.com/m/tunnel-vision-57',
+    presave: true,
   },
 };
 
@@ -18,6 +19,22 @@ export const HomePageData = {
   // title: 'Mia Madden',
   title: 'lovpune',
 };
+
+export const CarouselImages = [
+  Featured.album,
+  {
+    src: '/img/MAMA/album_if_u_could_changeit.jpg',
+    href: 'https://open.spotify.com/track/6iKWn1XTAIzJo8U1MTJ7z1',
+  },
+  {
+    src: '/img/MAMA/album_allmyfriends.jpeg',
+    href: 'https://open.spotify.com/album/3Yx7zZ43S8fFYqeNN5tqK0',
+  },
+  {
+    src: '/img/MAMA/album_neverknew.jpeg',
+    href: 'https://open.spotify.com/album/1EpBenE7byXtAUoLWBz1Ud',
+  },
+];
 
 export function MetaTags() {
   return (
