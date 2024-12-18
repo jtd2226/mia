@@ -10,8 +10,8 @@ export const SiteMetaData = {
 export const Featured = {
   album: {
     src: '/img/MAMA/album_tunnel_vision.avif',
-    href: 'https://unitedmasters.com/m/tunnel-vision-57',
-    presave: true,
+    href: 'https://open.spotify.com/track/22N6OKdTpwKZkSL8pMvY3Q',
+    presave: false,
   },
 };
 
