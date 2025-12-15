@@ -62,7 +62,7 @@ export default function SocialMedia() {
         height="58px"
       />
       <SocialMediaIcon
-        link="https://music.apple.com/us/artist/mia-madden/id1527337487"
+        link="https://music.apple.com/us/artist/lovpune/1752332268"
         alt="apple music"
         logo="/img/social/Apple_Icon.svg"
         style={{ borderRadius: '50%' }}
