@@ -8,14 +8,8 @@ const routes = {
   home: {
     component: dynamic(() => import('../pagecomponents/home')),
   },
-  music: {
-    component: dynamic(() => import('../tabs/music')),
-  },
   media: {
     component: dynamic(() => import('../tabs/media')),
-  },
-  about: {
-    component: dynamic(() => import('../tabs/about')),
   },
   socials: {
     background: {
