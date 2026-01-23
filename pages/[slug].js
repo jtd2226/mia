@@ -4,7 +4,24 @@ const paths = Object.keys(Router.routes).map(route => ({
   params: { slug: route },
 }));
 
-export function getStaticProps() {
+export function getStaticProps(ctx) {
+  if (ctx?.params?.slug === 'about') {
+    return {
+      redirect: {
+        destination:
+          'https://voyagela.com/interview/conversations-with-lovpune',
+        permanent: false,
+      },
+    };
+  }
+  if (ctx?.params?.slug === 'music') {
+    return {
+      redirect: {
+        destination: 'https://distrokid.com/hyperfollow/lovpune/by-design',
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {},
     revalidate: 1,
