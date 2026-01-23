@@ -284,6 +284,7 @@ export default function World({
     canvas.current ??= document.getElementById('scene');
     if (!canvas.current) return;
     if (!imageURL?.length) return;
+
     const scene = new Scene({
       canvas: canvas.current,
       fallback: fallbackImg.current,

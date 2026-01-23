@@ -7,6 +7,7 @@ export const color = {
     primary: '#d0c6ffb8',
     secondary: '#0196ff40',
   },
+  gray: '#808080a6',
 };
 
 const dimensions = {
@@ -41,16 +42,27 @@ export const MIA = {
   // animation: `${animation.slidedown}, ${animation.wobbledywop}`,
 };
 
-export const header = {
-  color: 'rgb(31 90 228 / 70%)',
-  textAlign: 'center',
-  margin: '15px 0 30px 0',
-  animation: animation.fade,
+export const nav = {
+  position: 'sticky',
+  top: '0',
+  zIndex: zIndex.top,
+  textAlign: 'end',
+  paddingTop: '24px',
+  paddingBottom: '8px',
+  paddingLeft: '12px',
+  paddingRight: '12px',
+  animation: animation.fadein,
   boxSizing: 'border-box',
-  display: 'block',
-  fontWeight: 'bold',
+  display: 'flex',
   fontSize: 'xx-large',
   textDecoration: 'none',
+  width: '100%',
+  fontFamily: 'Acylical Hand Thick',
+  alignItems: 'flex-end',
+  alignContent: 'flex-end',
+  gap: '20px',
+  backgroundColor: '#010101',
+  flexWrap: 'wrap',
 };
 
 export const contact = {
@@ -61,15 +73,23 @@ export const contact = {
   fontFamily: 'Cute',
 };
 
-export const socialContainer = {
-  display: 'flex',
-  // width: dimensions.width,
-  minWidth: '50vw',
-  boxSizing: 'border-box',
-  flexWrap: 'wrap',
-  zIndex: zIndex.top,
-  justifyContent: 'space-around',
-  animation: animation.fadein,
+export const pages = {
+  socials: {
+    main: {
+      flex: '1 0 auto',
+      justifyContent: 'center',
+    },
+    container: {
+      display: 'flex',
+      // width: dimensions.width,
+      minWidth: '50vw',
+      boxSizing: 'border-box',
+      flexWrap: 'wrap',
+      zIndex: zIndex.top,
+      justifyContent: 'space-around',
+      animation: animation.fadein,
+    },
+  },
 };
 
 export const logo = {
@@ -81,6 +101,9 @@ export const logo = {
   tiktok: { borderRadius: '50%', backgroundColor: 'black' },
   spotify: {
     borderRadius: '50%',
+  },
+  main: {
+    height: '40px',
   },
 };
 
@@ -100,17 +123,75 @@ export const navbar = {
 };
 
 export const pageLink = {
-  color: color.angel,
-  fontSize: '40px',
-  fontWeight: 'bold',
-  textShadow: `rgb(102 102 104 / 72%) 6px 6.5px 6px`,
+  color: color.white,
+  fontSize: '24px',
   transition: 'transform 0.5s',
-  fontFamily: 'Agresiva',
-  letterSpacing: '3px',
+  fontFamily: 'Acylical Hand Thick',
   pointerEvents: 'all',
   cursor: 'pointer',
   boxSizing: 'border-box',
   selected: {
     transform: 'scale(1.25)',
+  },
+};
+
+export const videos = {
+  display: 'flex',
+  width: '100%',
+  overflow: 'auto',
+  flex: '1 0 auto',
+  gap: '12px',
+};
+
+export const form = {
+  mailingList: {
+    section: {
+      position: 'relative',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    inputContainer: {
+      display: 'flex',
+      gap: '8px',
+      backgroundColor: color.gray,
+      padding: '8px',
+    },
+    input: {
+      borderTop: 0,
+      borderLeft: 0,
+      borderRight: 0,
+      borderBottom: `1px solid ${color.white}`,
+      backgroundColor: 'transparent',
+      color: color.white,
+      fontSize: '18px',
+      minWidth: '250px',
+    },
+    button: {
+      backgroundColor: '#808080',
+      padding: '6px',
+      color: color.white,
+      border: '1px solid ' + color.white,
+      fontWeight: 'bolder',
+    },
+    container: {
+      position: 'absolute',
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    notice: {
+      display: 'block',
+      fontFamily: 'Plantagenet Cherokee',
+      color: color.white,
+      width: '100%',
+      textAlign: 'center',
+      padding: '12px',
+      fontSize: '20px',
+      fontWeight: 'bolder',
+      margin: 0,
+    },
   },
 };

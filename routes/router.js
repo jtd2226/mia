@@ -17,6 +17,12 @@ const routes = {
   about: {
     component: dynamic(() => import('../tabs/about')),
   },
+  socials: {
+    background: {
+      image: '/img/veiled_mama.png',
+    },
+    component: dynamic(() => import('../tabs/socials')),
+  },
   // presave: {
   //   component: dynamic(() => import('../pagecomponents/presave')),
   // },
@@ -88,14 +94,25 @@ Router.keys = keys;
 
 export function Link(props) {
   const { push } = Router.use();
-  const { route, background, children, ...rest } = props;
+  const style = { ...(props.style ?? {}) };
+  const { route, background, children, style: _, ...rest } = props;
   const external = background || route.startsWith('http');
   const target = background ? '_blank' : undefined;
   const rel = background ? 'noreferrer' : undefined;
+
+  if (props.disabled) {
+    style.cursor = 'default';
+    style.opacity = 0.5;
+  }
+
   return (
     <a
-      href={route}
+      href={props.disabled ? '' : route}
       onClick={e => {
+        if (props.disabled) {
+          e.preventDefault();
+          return;
+        }
         if (external) return;
         if (e.metaKey) return;
         e.preventDefault();
@@ -103,6 +120,7 @@ export function Link(props) {
       }}
       target={target}
       rel={rel}
+      style={style}
       {...rest}
     >
       {children}
