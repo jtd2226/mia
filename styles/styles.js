@@ -155,6 +155,7 @@ export const form = {
       display: 'flex',
       gap: '8px',
       backgroundColor: color.gray,
+      backdropFilter: 'blur(4px)',
       padding: '8px',
     },
     input: {
@@ -168,7 +169,7 @@ export const form = {
       minWidth: '250px',
     },
     button: {
-      backgroundColor: '#808080',
+      backgroundColor: 'transparent',
       padding: '6px',
       color: color.white,
       border: '1px solid ' + color.white,

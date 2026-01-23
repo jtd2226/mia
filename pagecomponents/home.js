@@ -1,5 +1,6 @@
 import World from 'GL/scene';
 import * as styles from '../styles/styles';
+import { Link } from 'routes/router';
 
 const videos = [
   'https://www.youtube.com/embed/JIIGuDBs_6A?si=dR5f8Afew2gPPt5d',
@@ -28,17 +29,23 @@ export default function Home() {
           >
             <span style={styles.form.mailingList.container}>
               <span style={styles.form.mailingList.inputContainer}>
-                <input
+                {/* <input
                   type="text"
                   placeholder="EMAIL ADDRESS"
                   style={styles.form.mailingList.input}
-                ></input>
-                <button style={styles.form.mailingList.button}>JOIN</button>
+                ></input> */}
+                <Link
+                  route="https://laylo.com/lovpune"
+                  style={styles.form.mailingList.button}
+                  target="_blank"
+                >
+                  SUBSCRIBE
+                </Link>
               </span>
-              <p style={styles.form.mailingList.notice}>
+              {/* <p style={styles.form.mailingList.notice}>
                 By connecting you agree to receive updates from Lovepune via
                 email
-              </p>
+              </p> */}
             </span>
           </World>
         </span>
