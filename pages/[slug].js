@@ -1,31 +1,16 @@
 import Router from '../routes/router';
+import { NavLinks } from 'metadata';
 
 const paths = Object.keys(Router.routes).map(route => ({
   params: { slug: route },
 }));
 
 export function getStaticProps(ctx) {
-  if (ctx?.params?.slug === 'about') {
+  const redirect = NavLinks[ctx?.params?.slug]?.redirect;
+  if (redirect) {
     return {
       redirect: {
-        destination:
-          'https://voyagela.com/interview/conversations-with-lovpune',
-        permanent: false,
-      },
-    };
-  }
-  if (ctx?.params?.slug === 'music') {
-    return {
-      redirect: {
-        destination: 'https://distrokid.com/hyperfollow/lovpune/by-design',
-        permanent: false,
-      },
-    };
-  }
-  if (ctx?.params?.slug === 'socials') {
-    return {
-      redirect: {
-        destination: 'https://linktr.ee/lovpune',
+        destination: redirect,
         permanent: false,
       },
     };

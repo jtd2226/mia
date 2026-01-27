@@ -1,13 +1,7 @@
 import World from 'GL/scene';
 import * as styles from '../styles/styles';
-import { Link } from 'routes/router';
 import Image from 'next/image';
-
-const videos = [
-  'https://www.youtube.com/embed/JIIGuDBs_6A?si=dR5f8Afew2gPPt5d',
-  'https://www.youtube.com/embed/FgpuwyFwfRg?si=sAeBbGHxGJkFdLXu',
-  'https://www.youtube.com/embed/RO2YCjhlcyk?si=c-V0EdiB_8nmkSoN',
-];
+import { YouTubeVideos } from 'metadata';
 
 function Gap() {
   return <div style={{ height: '32px', width: '100%' }} />;
@@ -54,7 +48,7 @@ export default function Home() {
           />
         </span>
         <div style={styles.videos}>
-          {videos.map(src => (
+          {YouTubeVideos.map(src => (
             <iframe
               key={src}
               src={src}

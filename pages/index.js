@@ -1,28 +1,13 @@
 import Head from 'next/head';
 import * as styles from '../styles/styles';
 import { Link } from '../routes/router';
-import { SiteMetaData } from 'metadata';
+import { SiteMetaData, NavLinks } from 'metadata';
 import Router from '../routes/router';
-
-const links = [
-  {
-    name: 'About',
-    route: 'https://voyagela.com/interview/conversations-with-lovpune',
-    target: '_blank',
-  },
-  {
-    name: 'Music',
-    route: 'https://distrokid.com/hyperfollow/lovpune/by-design',
-    target: '_blank',
-  },
-  { name: 'Socials', route: 'https://linktr.ee/lovpune', target: '_blank' },
-  { name: 'Shop', route: 'shop', disabled: true },
-];
 
 export default function Home({ children }) {
   const { page } = Router.use();
-
-  const anyActive = links.some(link => link.route === page);
+  const links = Object.entries(NavLinks);
+  const anyActive = links.some(([route]) => route === page);
   return (
     <>
       <Head>
@@ -34,12 +19,12 @@ export default function Home({ children }) {
           <img src="/img/LOVPUNE_LOGO.png" style={styles.logo.main} />
         </Link>
         <span className="spacer" />
-        {links.map(link => (
+        {links.map(([route, link]) => (
           <Link
             key={link.name}
-            route={link.route}
+            route={link.redirect ?? route}
             style={styles.pageLink}
-            target={link.target}
+            target={link.external ? '_blank' : '_self'}
             className={
               page === link.route ? 'active' : anyActive ? 'inactive' : 'idle'
             }
