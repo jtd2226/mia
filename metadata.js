@@ -1,5 +1,5 @@
 export const SiteMetaData = {
-  title: 'lovpune music',
+  title: 'LOVPUNE - Official Website',
   description: 'Official website for music artist lovpune',
   author: 'Mia Madden',
   url: 'https://www.lovpune.com',
@@ -13,10 +13,6 @@ export const Featured = {
     href: 'https://open.spotify.com/track/22N6OKdTpwKZkSL8pMvY3Q',
     presave: false,
   },
-};
-
-export const HomePageData = {
-  title: 'LOVPUNE',
 };
 
 export const NavLinks = {
