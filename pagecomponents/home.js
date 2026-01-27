@@ -1,6 +1,7 @@
 import World from 'GL/scene';
 import * as styles from '../styles/styles';
 import { Link } from 'routes/router';
+import Image from 'next/image';
 
 const videos = [
   'https://www.youtube.com/embed/JIIGuDBs_6A?si=dR5f8Afew2gPPt5d',
@@ -16,11 +17,19 @@ export default function Home() {
   return (
     <>
       <main>
-        <World
+        <Image
+          src="/img/still_portrait.jpg"
+          alt="Background Image of Lovpune"
+          width={3200}
+          height={1800}
+          fill="true"
+          priority
+        />
+        {/* <World
           amplitude={-1}
           images="/img/still_portrait.jpg"
           style={{ width: '100%' }}
-        />
+        /> */}
         <span style={styles.form.mailingList.section}>
           <World
             amplitude={2}
@@ -73,13 +82,27 @@ export default function Home() {
           marginTop: 'auto',
         }}
       >
-        <World
+        <div
+          style={{
+            width: 'min(75%, 800px)',
+          }}
+        >
+          <Image
+            src="/img/transparent_portrait.png"
+            alt="Background Image of Lovpune"
+            width={2233}
+            height={1688}
+            fill="true"
+            priority
+          />
+        </div>
+        {/* <World
           amplitude={-2}
           images="/img/transparent_portrait.png"
           style={{
             width: 'min(75%, 800px)',
           }}
-        />
+        /> */}
       </footer>
     </>
   );

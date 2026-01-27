@@ -29,11 +29,11 @@ export default function Home({ children }) {
         <title>{SiteMetaData.title}</title>
       </Head>
 
-      <nav style={styles.nav}>
-        <Link route="home">
+      <nav style={styles.nav} className="top-nav">
+        <Link route="home" className="home-link">
           <img src="/img/LOVPUNE_LOGO.png" style={styles.logo.main} />
         </Link>
-        <span style={{ flex: 1 }}></span>
+        <span className="spacer" />
         {links.map(link => (
           <Link
             key={link.name}

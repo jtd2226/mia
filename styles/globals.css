@@ -151,6 +151,28 @@ input::placeholder {
   color: #efefef;
 }
 
+.top-nav {
+  position: sticky;
+  top: 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+@media (width <= 900px) {
+  .home-link {
+    text-align: center;
+    width: 100%;
+  }
+  .spacer {
+    display: none;
+  }
+  .top-nav {
+    justify-content: center;
+  }
+}
+
 @font-face {
   font-family: 'Cute';
   src: url('../public/fonts/C800.ttf');
