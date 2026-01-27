@@ -160,6 +160,21 @@ input::placeholder {
   flex: 1;
 }
 
+.laylo-embed {
+  border-radius: 4px;
+  transition:
+    background-color 1s ease,
+    backdrop-filter 1s ease;
+}
+
+.mailing-list-container:hover .laylo-embed,
+.laylo-embed:focus,
+.laylo-embed:hover,
+.laylo-embed:focus-within {
+  background-color: #00000090;
+  backdrop-filter: blur(10px);
+}
+
 @media (width <= 900px) {
   .home-link {
     text-align: center;

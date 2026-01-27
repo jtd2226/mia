@@ -59,7 +59,6 @@ export default function SocialMedia() {
         <Image
           src="/img/veiled_mama.png"
           alt="Background Image of Lovpune"
-          width={3200}
           layout="fill"
           priority
         />

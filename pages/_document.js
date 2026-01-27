@@ -21,6 +21,7 @@ gtag("config", "G-BHRJGXLN8Z");
 `,
             }}
           />
+          <script src="https://embed.laylo.com/laylo-sdk.js"></script>
         </Head>
         <body>
           <Main />

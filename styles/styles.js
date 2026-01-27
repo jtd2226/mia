@@ -157,13 +157,18 @@ export const form = {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
+      flexDirection: 'column',
+      width: '100%',
+      minHeight: '250px',
     },
-    inputContainer: {
-      display: 'flex',
-      gap: '8px',
-      backgroundColor: color.gray,
-      backdropFilter: 'blur(4px)',
-      padding: '8px',
+    iframe: {
+      width: 'min(100%, 700px)',
+      zIndex: zIndex.normal,
+      position: 'absolute',
+    },
+    canvas: {
+      width: '100%',
+      zIndex: zIndex.bottom,
     },
     input: {
       borderTop: 0,

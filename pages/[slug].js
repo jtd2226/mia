@@ -22,6 +22,14 @@ export function getStaticProps(ctx) {
       },
     };
   }
+  if (ctx?.params?.slug === 'socials') {
+    return {
+      redirect: {
+        destination: 'https://linktr.ee/lovpune',
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {},
     revalidate: 1,

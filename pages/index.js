@@ -15,7 +15,7 @@ const links = [
     route: 'https://distrokid.com/hyperfollow/lovpune/by-design',
     target: '_blank',
   },
-  { name: 'Socials', route: 'socials' },
+  { name: 'Socials', route: 'https://linktr.ee/lovpune', target: '_blank' },
   { name: 'Shop', route: 'shop', disabled: true },
 ];
 

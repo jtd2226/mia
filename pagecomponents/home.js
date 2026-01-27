@@ -14,6 +14,11 @@ function Gap() {
 }
 
 export default function Home() {
+  const laylo = new URLSearchParams({
+    dropId: '43RCw',
+    theme: 'dark',
+    background: 'transparent',
+  }).toString();
   return (
     <>
       <main>
@@ -30,33 +35,23 @@ export default function Home() {
           images="/img/still_portrait.jpg"
           style={{ width: '100%' }}
         /> */}
-        <span style={styles.form.mailingList.section}>
+        <span
+          style={styles.form.mailingList.section}
+          className="mailing-list-container"
+        >
           <World
             amplitude={2}
             images="/img/EtherealOrb.png"
-            style={{ width: 'min(100%, 700px)' }}
-          >
-            <span style={styles.form.mailingList.container}>
-              <span style={styles.form.mailingList.inputContainer}>
-                {/* <input
-                  type="text"
-                  placeholder="EMAIL ADDRESS"
-                  style={styles.form.mailingList.input}
-                ></input> */}
-                <Link
-                  route="https://laylo.com/lovpune"
-                  style={styles.form.mailingList.button}
-                  target="_blank"
-                >
-                  SUBSCRIBE
-                </Link>
-              </span>
-              {/* <p style={styles.form.mailingList.notice}>
-                By connecting you agree to receive updates from Lovepune via
-                email
-              </p> */}
-            </span>
-          </World>
+            style={styles.form.mailingList.canvas}
+          />
+          <iframe
+            id="laylo-drop-43RCw"
+            allow="web-share"
+            allowtransparency="true"
+            src={`https://embed.laylo.com?${laylo}`}
+            style={styles.form.mailingList.iframe}
+            className="laylo-embed"
+          />
         </span>
         <div style={styles.videos}>
           {videos.map(src => (
@@ -84,15 +79,14 @@ export default function Home() {
       >
         <div
           style={{
-            width: 'min(75%, 800px)',
+            width: '100%',
           }}
         >
           <Image
             src="/img/transparent_portrait.png"
             alt="Background Image of Lovpune"
-            width={2233}
-            height={1688}
-            fill="true"
+            width={3200}
+            height={1800}
             priority
           />
         </div>

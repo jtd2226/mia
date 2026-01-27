@@ -97,6 +97,7 @@ export function Link(props) {
   if (props.disabled) {
     style.cursor = 'default';
     style.opacity = 0.5;
+    style.pointerEvents = 'none';
   }
 
   return (
