@@ -8,18 +8,6 @@ const routes = {
   home: {
     component: dynamic(() => import('../pagecomponents/home')),
   },
-  media: {
-    component: dynamic(() => import('../tabs/media')),
-  },
-  socials: {
-    background: {
-      image: '/img/veiled_mama.png',
-    },
-    component: dynamic(() => import('../tabs/socials')),
-  },
-  // presave: {
-  //   component: dynamic(() => import('../pagecomponents/presave')),
-  // },
 };
 
 const wrapped = arr =>
