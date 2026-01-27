@@ -1,5 +1,5 @@
 export const SiteMetaData = {
-  title: 'LOVPUNE - Official Website',
+  title: 'LOVPUNE OFFICIAL WEBSITE',
   description: 'Official website for music artist lovpune',
   author: 'Mia Madden',
   url: 'https://www.lovpune.com',
