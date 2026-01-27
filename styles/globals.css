@@ -4,13 +4,36 @@ body {
   background-color: #0c0c0c;
 }
 
+iframe {
+  border: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
-  overflow: hidden auto;
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100dvh;
+}
+
+nav a.active {
+  transform: scale(1.1);
+}
+
+nav a.inactive {
+  transform: scale(0.9);
+}
+
+nav a.idle:hover,
+a.inactive:hover {
+  transform: rotate(3deg);
 }
 
 a {
@@ -21,9 +44,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 20px;
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
 }
 
 .bg-scene {
@@ -89,7 +109,9 @@ main {
 
 .album-link button {
   opacity: 0;
-  transition: opacity 0.2s ease-in, transform 0.2s ease-in;
+  transition:
+    opacity 0.2s ease-in,
+    transform 0.2s ease-in;
 }
 
 .album-link:hover button,
@@ -118,11 +140,52 @@ button {
   padding: 0;
   cursor: pointer;
   transition: transform 0.2s ease-in;
-  color: white;
+  color: #efefef;
 }
 
 button:active {
   transform: scale(0.95);
+}
+
+input::placeholder {
+  color: #efefef;
+}
+
+.top-nav {
+  position: sticky;
+  top: 0;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.laylo-embed {
+  border-radius: 4px;
+  transition:
+    background-color 1s ease,
+    backdrop-filter 1s ease;
+}
+
+.mailing-list-container:hover .laylo-embed,
+.laylo-embed:focus,
+.laylo-embed:hover,
+.laylo-embed:focus-within {
+  background-color: #00000090;
+  backdrop-filter: blur(10px);
+}
+
+@media (width <= 900px) {
+  .home-link {
+    text-align: center;
+    width: 100%;
+  }
+  .spacer {
+    display: none;
+  }
+  .top-nav {
+    justify-content: center;
+  }
 }
 
 @font-face {
@@ -133,6 +196,16 @@ button:active {
 @font-face {
   font-family: 'Agresiva';
   src: url('../public/fonts/Agresiva.ttf');
+}
+
+@font-face {
+  font-family: 'Acylical Hand Thick';
+  src: url('../public/fonts/AcylicalHandThick.ttf');
+}
+
+@font-face {
+  font-family: 'Plantagenet Cherokee';
+  src: url('../public/fonts/PlantagenetCherokee.ttf');
 }
 
 @keyframes fade {

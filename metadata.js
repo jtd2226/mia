@@ -1,5 +1,5 @@
 export const SiteMetaData = {
-  title: 'lovpune music',
+  title: 'LOVPUNE - Official Website',
   description: 'Official website for music artist lovpune',
   author: 'Mia Madden',
   url: 'https://www.lovpune.com',
@@ -15,9 +15,26 @@ export const Featured = {
   },
 };
 
-export const HomePageData = {
-  // title: 'Mia Madden',
-  title: 'lovpune',
+export const NavLinks = {
+  about: {
+    name: 'About',
+    redirect: 'https://voyagela.com/interview/conversations-with-lovpune',
+    external: true,
+  },
+  music: {
+    name: 'Music',
+    redirect: 'https://distrokid.com/hyperfollow/lovpune/by-design',
+    external: true,
+  },
+  socials: {
+    name: 'Socials',
+    redirect: 'https://linktr.ee/lovpune',
+    external: true,
+  },
+  shop: {
+    name: 'Shop',
+    disabled: true,
+  },
 };
 
 export const CarouselImages = [
@@ -34,6 +51,12 @@ export const CarouselImages = [
     src: '/img/MAMA/album_neverknew.jpeg',
     href: 'https://open.spotify.com/album/1EpBenE7byXtAUoLWBz1Ud',
   },
+];
+
+export const YouTubeVideos = [
+  'https://www.youtube.com/embed/JIIGuDBs_6A?si=dR5f8Afew2gPPt5d',
+  'https://www.youtube.com/embed/FgpuwyFwfRg?si=sAeBbGHxGJkFdLXu',
+  'https://www.youtube.com/embed/RO2YCjhlcyk?si=c-V0EdiB_8nmkSoN',
 ];
 
 export function MetaTags() {

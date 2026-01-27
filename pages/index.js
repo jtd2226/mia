@@ -1,119 +1,40 @@
 import Head from 'next/head';
 import * as styles from '../styles/styles';
-import SocialMedia from '../pagecomponents/social';
-import Router, { Link } from '../routes/router';
-import PageTransition from '../routes/transition';
-import { Featured, HomePageData, SiteMetaData } from 'metadata';
-import World from 'GL/scene';
-import { useEffect, useRef } from 'react';
+import { Link } from '../routes/router';
+import { SiteMetaData, NavLinks } from 'metadata';
+import Router from '../routes/router';
 
-function Tab({ route }) {
+export default function Home({ children }) {
   const { page } = Router.use();
+  const links = Object.entries(NavLinks);
+  const anyActive = links.some(([route]) => route === page);
   return (
-    <Link
-      route={route}
-      style={{
-        ...styles.pageLink,
-        ...(route === page ? styles.pageLink.selected : {}),
-      }}
-    >
-      {route.toUpperCase()}
-    </Link>
-  );
-}
-
-// const titleAnimation = {
-//   y: -300,
-//   speed: 0.02,
-//   get transform() {
-//     const y = titleAnimation.y;
-//     if (!y) return '';
-//     return `translateY(${y}px)`;
-//   },
-// };
-
-export default function Home({ children, page }) {
-  // const title = useRef();
-
-  // function animateTitle(elapsed) {
-  //   const element = title.current;
-  //   if (!element) return requestAnimationFrame(animateTitle);
-  //   titleAnimation.last ??= elapsed;
-  //   const delta = (elapsed - titleAnimation.last) * titleAnimation.speed;
-  //   if (!delta) return requestAnimationFrame(animateTitle);
-
-  //   titleAnimation.y = Math.min(titleAnimation.y + delta, 0);
-  //   element.style.transform = titleAnimation.transform;
-
-  //   if (!titleAnimation.y) return;
-
-  //   requestAnimationFrame(animateTitle);
-  // }
-
-  // useEffect(() => {
-  //   if (!title.current) return;
-  //   const id = requestAnimationFrame(animateTitle);
-  //   return () => {
-  //     cancelAnimationFrame(id);
-  //   };
-  // }, [title]);
-
-  return (
-    <main>
+    <>
       <Head>
         <title>{SiteMetaData.title}</title>
       </Head>
-      {/* <div
-        style={{
-          position: 'fixed',
-          top: '0',
-          left: '0',
-          height: '100vh',
-          width: '100vw',
-          textAlign: 'center',
-          pointerEvents: 'none',
-          zIndex: -1,
-        }}
-      >
-        <svg
-          style={{ width: 'min(100vw, 100vh)', height: '100vh' }}
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMaxYMax slice"
-        >
-          <image href="/img/MAMA/mamacowboy.png" height="100" width="100" />
-          <image href="/img/MAMA/angelmama.jpg" height="100" width="100" />
-        </svg>
-      </div> */}
 
-      <Link
-        route={page === 'home' ? Featured.album.href : 'home'}
-        background={page === 'home'}
-        className="main-title"
-      >
-        {/* <img
-          src="/text/acid_lovpune.png"
-          style={{ width: '100%', height: '100%' }}
-        /> */}
-        <World
-          images="/text/acid_lovpune.png"
-          amplitude={-0.5}
-          rgbshift={0}
-          // fallback="/text/acid_lovpune.png"
-          style={{ width: '100%', height: '100%' }}
-        />
-      </Link>
-      {/* <a style={styles.header}>I'll B ur Angel NOW LISTEN ON SPOTIFY</a> */}
-      <span className="social-offset">
-        <SocialMedia />
-      </span>
-      <div style={styles.navbar}>
-        {/* <Tab route="music" /> */}
-        {/* <Tab route="media" /> */}
-        {/* <Tab route="about" /> */}
-        {/* <PageTransition> */}
-        <div className="tab-content">{children}</div>
-        {/* </PageTransition> */}
-      </div>
-    </main>
+      <nav style={styles.nav} className="top-nav">
+        <Link route="home" className="home-link">
+          <img src="/img/LOVPUNE_LOGO.png" style={styles.logo.main} />
+        </Link>
+        <span className="spacer" />
+        {links.map(([route, link]) => (
+          <Link
+            key={link.name}
+            route={link.redirect ?? route}
+            style={styles.pageLink}
+            target={link.external ? '_blank' : '_self'}
+            className={
+              page === link.route ? 'active' : anyActive ? 'inactive' : 'idle'
+            }
+            disabled={link.disabled || false}
+          >
+            {link.name}
+          </Link>
+        ))}
+      </nav>
+      {children}
+    </>
   );
 }
