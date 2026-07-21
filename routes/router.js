@@ -8,6 +8,9 @@ const routes = {
   home: {
     component: dynamic(() => import('../pagecomponents/home')),
   },
+  rsvp: {
+    component: dynamic(() => import('../pagecomponents/rsvp')),
+  },
 };
 
 const wrapped = arr =>

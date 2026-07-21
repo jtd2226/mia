@@ -1,18 +1,13 @@
-import World from 'GL/scene';
 import * as styles from '../styles/styles';
 import Image from 'next/image';
 import { YouTubeVideos } from 'metadata';
+import { SignupPage } from 'pagecomponents/rsvp';
 
 function Gap() {
   return <div style={{ height: '32px', width: '100%' }} />;
 }
 
 export default function Home() {
-  const laylo = new URLSearchParams({
-    dropId: '43RCw',
-    theme: 'dark',
-    background: 'transparent',
-  }).toString();
   return (
     <>
       <main>
@@ -24,29 +19,7 @@ export default function Home() {
           fill="true"
           priority
         />
-        {/* <World
-          amplitude={-1}
-          images="/img/still_portrait.jpg"
-          style={{ width: '100%' }}
-        /> */}
-        <span
-          style={styles.form.mailingList.section}
-          className="mailing-list-container"
-        >
-          <World
-            amplitude={2}
-            images="/img/EtherealOrb.png"
-            style={styles.form.mailingList.canvas}
-          />
-          <iframe
-            id="laylo-drop-43RCw"
-            allow="web-share"
-            allowtransparency="true"
-            src={`https://embed.laylo.com?${laylo}`}
-            style={styles.form.mailingList.iframe}
-            className="laylo-embed"
-          />
-        </span>
+        <SignupPage />
         <div style={styles.videos}>
           {YouTubeVideos.map(src => (
             <iframe
@@ -84,13 +57,6 @@ export default function Home() {
             priority
           />
         </div>
-        {/* <World
-          amplitude={-2}
-          images="/img/transparent_portrait.png"
-          style={{
-            width: 'min(75%, 800px)',
-          }}
-        /> */}
       </footer>
     </>
   );

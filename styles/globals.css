@@ -143,6 +143,11 @@ button {
   color: #efefef;
 }
 
+button:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 button:active {
   transform: scale(0.95);
 }
@@ -160,17 +165,75 @@ input::placeholder {
   flex: 1;
 }
 
-.laylo-embed {
+span {
+  box-sizing: border-box;
+}
+
+.rsvp-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  position: absolute;
+  color: #efefef;
+  text-align: center;
+  box-sizing: border-box;
+  width: min(100%, 700px);
+  padding: 16px;
+  z-index: 1;
   border-radius: 4px;
   transition:
+    opacity 0.3s ease,
     background-color 1s ease,
     backdrop-filter 1s ease;
 }
 
-.mailing-list-container:hover .laylo-embed,
-.laylo-embed:focus,
-.laylo-embed:hover,
-.laylo-embed:focus-within {
+.rsvp-form {
+  border: 2px solid #808080;
+  border-radius: 28px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 4px;
+}
+
+.rsvp-form input {
+  background: transparent;
+  border: 0;
+  font-size: 16px;
+  color: #efefef;
+  margin: 0;
+  padding: 16px;
+}
+
+.rsvp-form input::placeholder {
+  color: rgb(131, 131, 131);
+}
+
+.rsvp-form button {
+  background-color: #808080;
+  color: #292d30;
+  font-size: 14px;
+  border-radius: 24px;
+  padding: 16px;
+  font-weight: 700;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.rsvp-form:focus-within {
+  outline: 2px solid highlight;
+}
+
+.mailing-list-container:hover .rsvp-section,
+.rsvp-section:focus,
+.rsvp-section:hover,
+.rsvp-section:focus-within {
   background-color: #00000090;
   backdrop-filter: blur(10px);
 }
