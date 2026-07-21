@@ -58,7 +58,10 @@ function RSVPForm() {
     await Promise.all([
       fade(),
       rsvp({ name, email })
-        .then(r => r.json())
+        .then(r => {
+          console.log(r);
+          return r.json();
+        })
         .then(console.log)
         .catch(console.error),
     ]);

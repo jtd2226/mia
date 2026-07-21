@@ -2,6 +2,7 @@ import { firestore } from 'firebase';
 
 export default async function handler(request, response) {
   try {
+    response.setHeader('response-type', 'application/json');
     const {
       body: { name, email, phone },
     } = request;
@@ -54,6 +55,6 @@ export default async function handler(request, response) {
       .set(user)
       .then(() => response.status(200).json({ success: true }));
   } catch (error) {
-    return response.status(500).json({ error });
+    return response.status(200).json({ error });
   }
 }
