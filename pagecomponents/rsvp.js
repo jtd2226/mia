@@ -55,7 +55,13 @@ function RSVPForm() {
     }
     if (disabled) return;
     setLoading(true);
-    await Promise.all([fade(), rsvp({ name, email })]);
+    await Promise.all([
+      fade(),
+      rsvp({ name, email })
+        .then(r => r.json())
+        .then(console.log)
+        .catch(console.error),
+    ]);
     setIsSignedUp(true);
     setLoading(false);
   };
@@ -66,7 +72,7 @@ function RSVPForm() {
       ref={sectionRef}
       style={{
         display: isSignedUp && !fading ? 'none' : '',
-        opacity: fading ? 0 : 1,
+        opacity: loading || fading ? 0 : 1,
       }}
     >
       <strong>~ get updates on music, fun & live shows ~</strong>

@@ -50,7 +50,7 @@ export default async function handler(request, response) {
 
   return firestore
     .collection('users')
-    .doc(email)
+    .doc(ID)
     .set(user)
     .then(() => response.status(200).json({ success: true }))
     .catch(error => response.status(500).json({ error }));
