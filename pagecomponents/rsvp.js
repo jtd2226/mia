@@ -5,6 +5,7 @@ import { useState, useMemo, useRef } from 'react';
 const rsvp = user =>
   fetch('/api/rsvp', {
     headers: {
+      Accept: 'application/json',
       'Content-Type': 'application/json',
     },
     method: 'POST',

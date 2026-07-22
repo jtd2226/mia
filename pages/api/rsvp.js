@@ -1,15 +1,17 @@
 export default async function handler(request, response) {
   try {
-    return fetch('https://dash.lovpune.com/api/rsvp', {
-      method: 'POST',
+    const results = await fetch('http://dash.lovpune.com/api/rsvp', {
       headers: {
+        Accept: 'application/json',
         'Content-Type': 'application/json',
       },
+      method: 'POST',
       body: JSON.stringify(request.body),
-    })
-      .then(res => res.json())
-      .then(data => response.status(200).json(data));
+    }).then(r => r.json());
+    return response.status(200).json(results);
   } catch (error) {
-    return response.status(500).json({ error });
+    return response
+      .status(500)
+      .json({ error: error?.message ?? error ?? 'Unknown Error' });
   }
 }
