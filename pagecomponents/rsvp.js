@@ -56,16 +56,7 @@ function RSVPForm() {
     }
     if (disabled) return;
     setLoading(true);
-    await Promise.all([
-      fade(),
-      rsvp({ name, email })
-        .then(r => {
-          console.log(r);
-          return r.json();
-        })
-        .then(console.log)
-        .catch(console.error),
-    ]);
+    await Promise.all([fade(), rsvp({ name, email })]);
     setIsSignedUp(true);
     setLoading(false);
   };
